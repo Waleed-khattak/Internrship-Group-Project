@@ -1,0 +1,154 @@
+.verifiedSchool {
+  width: 70%;
+  border: 3rem solid var(--color-4);
+  /* padding: 1rem; */
+  padding-top: 1.2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  line-height: 1.5rem;
+}
+.loginSide {
+  width: 30%;
+  background-color: var(--bg-white);
+  padding-left: 2.5rem;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+.loginMainDiv {
+  display: flex;
+  height: 100vh;
+}
+.loginSide img {
+  width: 12rem;
+  margin-top: 3rem;
+  margin-bottom: 0.4rem;
+}
+
+.welcomeBelowLine {
+  margin-top: 0.2rem;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(105, 122, 141);
+  font-style: "Public Sans";
+  margin-bottom: 0.4rem;
+}
+.welcomeHeading {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0;
+  color: rgb(44, 75, 107);
+  font-style: "Public Sans";
+}
+.heading {
+  font-size: 12px;
+  margin-top: 0.8rem;
+
+  color: rgb(44, 75, 107);
+  font-weight: 500;
+  font-style: "Public Sans";
+  margin-bottom: 0.3rem;
+}
+input {
+  width: 85%;
+  /* border-radius: 3px; */
+  height: 1.5rem;
+}
+.buttons {
+  display: flex;
+}
+.forgetPassBtn {
+  /* color:var(--primary-color-3); */
+  font-size: 15px;
+  margin-top: 1.4rem;
+  margin-left: 1rem;
+  color: rgb(95, 97, 230);
+}
+.donthaveAccount {
+  margin-left: 1.4rem;
+  color: rgb(105, 122, 141);
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+.donthaveAccount span {
+  /* color:var(--color-3); */
+  color: rgb(95, 97, 230);
+}
+.verifiedSchoolsHeading {
+  font-size: 25px;
+}
+.mapdiv {
+  margin-top: 1rem;
+  border: 2px solid var(--color-3);
+  width: 100%;
+  height: 87%;
+  border-radius: 1rem;
+
+  /* height:26rem; */
+}
+.captchaRow {
+  display: flex;
+  margin-bottom: 1rem;
+}
+.refreshBtn {
+  color: white;
+  font-size: 24px;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  margin-left: 1rem;
+  /* height:3rem; */
+}
+
+.captcha .heading {
+  font-weight: 400;
+  font-size: 15px;
+  color: rgb(105, 122, 141);
+  font-style: "Public Sans";
+}
+.imageDiv img {
+  height: 4rem;
+  width: 15rem;
+}
+.loginSide input {
+  width: 90%;
+  padding: 12px 16px;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+  margin-top: 6px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.loginSide input::placeholder {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.loginSide input:focus {
+  border-color: #4a6cf7;
+  box-shadow: 0 0 6px rgba(74, 108, 247, 0.4);
+}
+.mapdiv {
+  margin-top: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.forgetPassBtn {
+    color: #0E59F2;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    margin-top: 10px;
+}
+
+.forgetPassBtn:hover {
+    opacity: 0.8;
+}

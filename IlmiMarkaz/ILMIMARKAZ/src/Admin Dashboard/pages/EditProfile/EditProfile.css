@@ -1,0 +1,87 @@
+.edit-profile-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f8fa;
+}
+
+.edit-profile-card {
+  background: #fff;
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 400px;
+  text-align: center; /* Add this line */
+}
+
+.edit-profile-card h2 {
+  margin-bottom: 1.5rem;
+  color: #0E59F2;
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #22223b;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f9f9fb;
+  transition: border 0.2s;
+}
+
+.form-group input:focus {
+  border: 1.5px solid #0E59F2;
+  outline: none;
+  background: #fff;
+}
+
+.btn-primary {
+  display: inline-block;
+  width: auto;
+  min-width: 180px;
+  max-width: 250px;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(90deg, #0E59F2 60%, #2563eb 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.18rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+  box-shadow: 0 4px 16px rgba(14, 89, 242, 0.12);
+  letter-spacing: 0.5px;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  outline: none;
+  text-align: center;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background: linear-gradient(90deg, #174bbd 60%, #2563eb 100%);
+  box-shadow: 0 8px 24px rgba(14, 89, 242, 0.18);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.success-msg {
+  margin-top: 1rem;
+  color: #18BB9B;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+}
