@@ -178,7 +178,7 @@ else if (user.role === 3) navigate("/student");
 
           {/* Buttons */}
           <div className="buttons">
-            <button className="btn btn-primary my-3" type="submit">
+            <button className="btn loginBtn btn-primary my-3" type="submit">
               Login
             </button>
             <div className="forgetPassBtn">Forget Your Password?</div>

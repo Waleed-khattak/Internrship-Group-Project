@@ -205,14 +205,14 @@ export default function SignUp() {
         </div>
 
         {/* Buttons */}
-        <div className="buttons">
-          <button
-            className="btn signUpBtn btn-primary my-3"
-            onClick={handleSubmit}
-          >
-            Register
-          </button>
-        </div>
+      <div className="button">
+  <button
+    className="btn btn-primary signUpBtn"
+    onClick={handleSubmit}
+  >
+    Register
+  </button>
+</div>
 
         <div className="donthaveAccount">
           Already have an account?

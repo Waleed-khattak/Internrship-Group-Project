@@ -1,5 +1,11 @@
-.signUpBtn{
-    width: 90% !important; 
+
+ .signUpBtn {
+  width: 100% !important;
+  display: block !important;
+  padding-right: 60px;
+  margin :0 ;
+  align-items: center;
+    margin-left: 25px;
 }
 .donthaveAccount span {
     color: #0E59F2;
