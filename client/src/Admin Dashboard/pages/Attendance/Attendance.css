@@ -1,0 +1,143 @@
+.attendance-page {
+    padding: 20px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.page-header h2 {
+    color: var(--text-heading-color);
+    font-weight: 600;
+}
+
+.content-card {
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-1);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color-1);
+}
+
+.card-header h3 {
+    color: var(--text-heading-color);
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.attendance-form {
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-heading-color);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color-1);
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.attendance-table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.attendance-table th,
+.attendance-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color-1);
+}
+
+.attendance-table th {
+    color: var(--text-heading-color);
+    font-weight: 600;
+}
+
+.status-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.status-btn {
+    padding: 5px 10px;
+    border: 1px solid var(--border-color-1);
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.status-btn.active {
+    background-color: var(--primary-color-1);
+    color: white;
+    border-color: var(--primary-color-1);
+}
+
+.status-btn:hover:not(.active) {
+    background-color: var(--color-1);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-primary {
+    background-color: var(--primary-color-1);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-3);
+}
+
+.report-filters {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.report-filters .form-group {
+    flex: 1;
+}
