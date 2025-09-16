@@ -15,7 +15,7 @@ Internship-Group-Project/
 ├── client/         # React frontend
 ├── server/         # Node.js backend
 └── README.md
-` ``` `
+```
 
 ---
 
