@@ -9,9 +9,11 @@ The project has two main parts:
 ---
 
 ## Project Structure
+
+```bash
 Internship-Group-Project/
-├── client/ # React frontend
-├── server/ # Node.js backend
+├── client/         # React frontend
+├── server/         # Node.js backend
 └── README.md
 
 ---
@@ -27,31 +29,31 @@ Internship-Group-Project/
 ## Setup & Installation
 
 ### Server
-cd server  
-npm install express mongoose cors dotenv bcrypt jsonwebtoken nodemon  
+- cd server  
+- npm install express mongoose cors dotenv bcrypt jsonwebtoken nodemon  
 
 Create a `.env` file inside `server/` with values like:  
-PORT=5000  
-DB_URI=your_database_url  
-JWT_SECRET=your_secret_key  
+- PORT=5000  
+- DB_URI=your_database_url  
+- JWT_SECRET=your_secret_key  
 
 Start server:  
-npm run dev   (for development with nodemon)  
-npm start     (for production)  
+- npm run dev   (for development with nodemon)  
+- npm start     (for production)  
 
 Server runs at: http://localhost:5000  
 
 ---
 
 ### Client
-cd client  
-npm install react react-dom react-router-dom axios  
+- cd client  
+- npm install react react-dom react-router-dom axios  
 
-Create a `.env` file inside `client/` with values like:  
-REACT_APP_API_URL=http://localhost:5000  
+- Create a `.env` file inside `client/` with values like:  
+- REACT_APP_API_URL=http://localhost:5000  
 
 Start client:  
-npm start  
+- npm start  
 
 Client runs at: http://localhost:3000  
 
