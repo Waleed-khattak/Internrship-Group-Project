@@ -10,8 +10,8 @@ The project has two main parts:
 
 ## Project Structure
 Internship-Group-Project/
-├── client/         # React frontend
-├── server/         # Node.js backend
+├── client/ # React frontend
+├── server/ # Node.js backend
 └── README.md
 
 ---
