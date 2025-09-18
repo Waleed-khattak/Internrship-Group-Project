@@ -8,12 +8,13 @@ app.use(express.json());
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log("✅ MongoDB connected"))
-.catch(err => console.log("❌ DB Error: " + err));
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("✅ MongoDB connected to IlmiMarkaz");
+  })
+  .catch(err => {
+    console.error("❌ DB Error:", err);
+  });
 
 // Import Routes
 const signupRoutes = require("./routes/signupRoutes");

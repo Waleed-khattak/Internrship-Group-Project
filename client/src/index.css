@@ -13,3 +13,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Universal container for whole site */
+.container {
+  max-width: 1200px;   /* Adjust to your design, e.g. 1140px, 1280px */
+  margin: 0 auto;      /* Centers the content horizontally */
+  padding: 0 20px;     /* Keeps spacing on small screens */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}

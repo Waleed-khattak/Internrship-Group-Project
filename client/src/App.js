@@ -2,11 +2,11 @@ import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import LoginPage from "./Login/LoginPage";
 import SignUp from "./SignUp/SignUp";
-import AdminApp from "./Admin Dashboard/AdminApp";
-import StudentApp from "./Student Dashboard/StudentApp";
-import TeacherApp from "./Teacher Dashboard/TeacherApp";
+import AdminApp from "./Dashboards/AdminDashboard/AdminApp";
+import StudentApp from "./Dashboards/StudentDashboard/StudentApp";
+import TeacherApp from "./Dashboards/TeacherDashboard/TeacherApp";
 import Header from "./Header/Header";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./Components/ProtectedRoute";
 
 function App() {
   const location = useLocation();

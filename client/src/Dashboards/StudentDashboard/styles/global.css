@@ -18,16 +18,15 @@ body {
 .dashboard-container {
     display: flex;
     min-height: 100vh;
-    position: relative; 
+    position: relative; /* add this */
 }
 
 .main-content {
     flex: 1;
     margin-left: 250px;
     transition: margin-left 0.3s ease;
-    position: relative; /* important for dropdown positioning */
-    z-index: 1; /* ensures dropdown appears above main content */
-    
+    position: relative; /* add this */
+    z-index: 1; /* ensures dropdown sits above main content */
 }
 
 
