@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
 
-
 export default function Header() {
   const navigate = useNavigate();
   const [showSideBar, setShowSideBar] = useState(false);
@@ -18,7 +17,7 @@ export default function Header() {
   const [showAdminMenu, setShowAdminMenu] = useState(false);
   const [showIntegrationMenu, setShowIntegrationMenu] = useState(false);
 
-  const clickRegBtn = () => navigate("/signup");
+  const clickRegBtn = () => navigate("/login");
   const clickLines = () => setShowSideBar(true);
   const clickCancelBtn = () => {
     setShowSideBar(false);
@@ -51,7 +50,7 @@ export default function Header() {
             <span>📞</span> +92(336)3473602
           </div>
           <div className="gmail">
-            <span>✉</span> support@ilmimarkez.com
+            <span>✉️</span> support@ilmimarkez.com
           </div>
         </div>
         <div className="location">
@@ -75,11 +74,10 @@ export default function Header() {
           >
             Features
             <span
-  className={`arrowdown ${showFeaturesDropdown ? "arrow-up" : ""}`}
->
-  ▼
-</span>
-
+              className={`arrowdown ${showFeaturesDropdown ? "arrow-up" : ""}`}
+            >
+              ▼
+            </span>
             <div
               className={`dropdown-menu features-dropdown ${
                 showFeaturesDropdown ? "show" : ""
@@ -200,23 +198,57 @@ export default function Header() {
 
         {/* Sidebar */}
         {showSideBar && (
-          <div className="threelinesclickMainDiv">
-            <div className="cancelBtn" onClick={clickCancelBtn}>
-              <i className="fa-solid fa-xmark"></i>
-            </div>
-            <div className="mainContent">
-              <div className="threeLinesmainheading"> Ilmi Markaz </div>
-              <div className="threeLinesmainheadingbelowtext">
-                Smart Solutions for Smarter Schools
-              </div>
-              <div className="contactPara">
-                Automate Institute Daily Operations, Generate Insightful
-                Reports, Make Better & Faster Decisions.
-              </div>
-            </div>
+        <div className="threelinesclickMainDiv">
+          <div className="cancelBtn" onClick={clickCancelBtn}>
+          <i className="fa-solid fa-xmark"></i>
           </div>
-        )}
+          <div className="mainContent">
+            <div className="mainContentFirstPart">
+          <div className="threeLinesmainheading"> Ilmi Markarz  </div> 
+           <div className="threeLinesmainheadingbelowtext"> Smart Solutions for Smarter Schools  </div>
+           </div>
+           <div className="contactPara">
+            Automate Institute Daily Operations, Generate Insightful Reports,Make Better & Faster Decisions. Ilmi Markerz Is An Online School Management System Software That Simplifies The Institute's Academic & Administrative Process Effortlessly.
+           </div>
+           <div className="getInTouch">
+            <div className="getInTouchMainHeading">Get in Touch </div> 
 
+            <div className="contactInfo">
+                <div className="icon">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div className="contactInformation">
+                <div className="contactHeading">Call Now</div>
+                <div className="contactData">+92(336)3473602</div>
+                </div>
+            </div>
+
+             <div className="contactInfo">
+                <div className="icon">
+                  <i class="fa-regular fa-envelope"></i>
+                </div>
+                <div className="contactInformation">
+                <div className="contactHeading">Quick Email</div>
+                <div className="contactData">support@ilmimarkerz.com</div>
+                </div>
+            </div>
+             <div className="contactInfo">
+                <div className="icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div className="contactInformation">
+                <div className="contactHeading">Office Address</div>
+                <div className="contactData">Suther Colony Mithi,Tharparkar</div>
+                </div>
+            </div>
+           </div>
+           <div className="socialMediaContact">
+            <div className="facebookIcon"><i class="fa-brands fa-facebook-f"></i></div>
+            <div className="twitterIcon"><i class="fa-brands fa-twitter"></i></div>
+            <div className="linkedInIcon"><i class="fa-brands fa-linkedin-in"></i></div>
+           </div>
+           </div>
+        </div>)}
         {showSearchBar && (
           <div className="fullScreen">
             <div className="cancelBtn" onClick={clickCancelBtn}>

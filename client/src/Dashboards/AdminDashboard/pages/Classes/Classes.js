@@ -1,54 +1,88 @@
-import React, { useState } from 'react';
-import './Classes.css';
-
+import React, { useState, useEffect } from "react";
+import "./Classes.css";
+const getAllClasses = () => {
+  const stored = localStorage.getItem("classesData");
+  return stored
+    ? JSON.parse(stored)
+    : [
+        {
+          id: 1,
+          name: "10th A",
+          students: 40,
+          classTeacher: "Mr. Ahmed Khan",
+          section: "A",
+        },
+        {
+          id: 2,
+          name: "9th B",
+          students: 35,
+          classTeacher: "Ms. Fatima Ali",
+          section: "B",
+        },
+        {
+          id: 3,
+          name: "8th C",
+          students: 38,
+          classTeacher: "Mr. Usman Malik",
+          section: "C",
+        },
+        {
+          id: 4,
+          name: "11th A",
+          students: 42,
+          classTeacher: "Ms. Ayesha Hassan",
+          section: "A",
+        },
+        {
+          id: 5,
+          name: "7th B",
+          students: 36,
+          classTeacher: "Mr. Bilal Ahmed",
+          section: "B",
+        },
+      ];
+};
 const Classes = () => {
-  const [classes, setClasses] = useState([
-    { id: 1, name: '10th A', students: 40, classTeacher: 'Mr. Ahmed Khan', section: 'A' },
-    { id: 2, name: '9th B', students: 35, classTeacher: 'Ms. Fatima Ali', section: 'B' },
-    { id: 3, name: '8th C', students: 38, classTeacher: 'Mr. Usman Malik', section: 'C' },
-    { id: 4, name: '11th A', students: 42, classTeacher: 'Ms. Ayesha Hassan', section: 'A' },
-    { id: 5, name: '7th B', students: 36, classTeacher: 'Mr. Bilal Ahmed', section: 'B' }
-  ]);
+  const [classes, setClasses] = useState(getAllClasses);
 
   const [showAddForm, setShowAddForm] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    students: '',
-    classTeacher: '',
-    section: ''
+    name: "",
+    students: "",
+    classTeacher: "",
+    section: "",
   });
-
+  useEffect(() => {
+    localStorage.setItem("classesData", JSON.stringify(classes));
+  }, [classes]);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
   const handleAddClass = (e) => {
     e.preventDefault();
     const newClass = {
-      id: classes.length + 1,
-      ...formData
+      id: classes.length > 0 ? classes[classes.length - 1].id + 1 : 1,
+      ...formData,
     };
     setClasses([...classes, newClass]);
-    setFormData({ name: '', students: '', classTeacher: '', section: '' });
+    setFormData({ name: "", students: "", classTeacher: "", section: "" });
     setShowAddForm(false);
   };
 
   const handleDeleteClass = (id) => {
-    setClasses(classes.filter(cls => cls.id !== id));
+    setClasses(classes.filter((cls) => cls.id !== id));
   };
 
   return (
     <div className="classes-page">
       <div className="page-header">
         <h2>Class Management</h2>
-        <button 
-          className="btn-primary"
-          onClick={() => setShowAddForm(true)}
-        >
+        <button className="btn-primary" onClick={() => setShowAddForm(true)}>
           <i className="fas fa-plus"></i> Add New Class
         </button>
       </div>
@@ -58,7 +92,7 @@ const Classes = () => {
           <div className="modal">
             <div className="modal-header">
               <h3>Add New Class</h3>
-              <button 
+              <button
                 className="close-btn"
                 onClick={() => setShowAddForm(false)}
               >
@@ -122,8 +156,14 @@ const Classes = () => {
 
       <div className="stats-grid">
         <div className="stat-card">
-          <div className="stat-icon" style={{ backgroundColor: 'var(--color-6)' }}>
-            <i className="fas fa-school" style={{ color: 'var(--primary-color-1)' }}></i>
+          <div
+            className="stat-icon"
+            style={{ backgroundColor: "var(--color-6)" }}
+          >
+            <i
+              className="fas fa-school"
+              style={{ color: "var(--primary-color-1)" }}
+            ></i>
           </div>
           <div className="stat-info">
             <h3>{classes.length}</h3>
@@ -131,11 +171,23 @@ const Classes = () => {
           </div>
         </div>
         <div className="stat-card">
-          <div className="stat-icon" style={{ backgroundColor: 'rgba(24, 187, 155, 0.1)' }}>
-            <i className="fas fa-user-graduate" style={{ color: '#18BB9B' }}></i>
+          <div
+            className="stat-icon"
+            style={{ backgroundColor: "rgba(24, 187, 155, 0.1)" }}
+          >
+            <i
+              className="fas fa-user-graduate"
+              style={{ color: "#18BB9B" }}
+            ></i>
           </div>
           <div className="stat-info">
-            <h3>{classes.reduce((acc, cls) => acc + parseInt(cls.students), 0)}</h3>
+            <h3>
+              {" "}
+              {classes.reduce(
+                (acc, cls) => acc + (parseInt(cls.students) || 0),
+                0
+              )}
+            </h3>
             <p>Total Students</p>
           </div>
         </div>
@@ -162,8 +214,8 @@ const Classes = () => {
               </tr>
             </thead>
             <tbody>
-              {classes.map(cls => (
-                <tr key={cls.id}>
+              {classes.map((cls) => (
+                <tr key={cls.id || `${cls.name}-${cls.section}`}>
                   <td>{cls.id}</td>
                   <td>{cls.name}</td>
                   <td>{cls.students}</td>
@@ -171,8 +223,10 @@ const Classes = () => {
                   <td>{cls.section}</td>
                   <td>
                     <div className="action-buttons">
-                      <button className="btn-icon"><i className="fas fa-edit"></i></button>
-                      <button 
+                      <button className="btn-icon">
+                        <i className="fas fa-edit"></i>
+                      </button>
+                      <button
                         className="btn-icon"
                         onClick={() => handleDeleteClass(cls.id)}
                       >

@@ -23,11 +23,11 @@ const Sidebar = ({ isOpen, role }) => {
 
     Teacher: [
       { icon: 'fas fa-home', label: 'Dashboard', path: '/teacher' },
+      { icon: 'fas fa-chalkboard-teacher', label: 'Classes', path: '/teacher/classes' },
       { icon: 'fas fa-calendar-alt', label: 'Class Timetable', path: '/teacher/timetable' },
       { icon: 'fas fa-clipboard-check', label: 'Mark Attendance', path: '/teacher/attendance' },
       { icon: 'fas fa-file-alt', label: 'Assignments', path: '/teacher/assignments' },
       { icon: 'fas fa-file-signature', label: 'Exams & Results', path: '/teacher/exams' },
-      { icon: 'fas fa-envelope', label: 'Messages', path: '/teacher/messages' },
       { icon: 'fas fa-bullhorn', label: 'Announcements', path: '/teacher/announcements' },
     ],
 

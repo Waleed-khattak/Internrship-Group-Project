@@ -17,7 +17,6 @@ const Attendance = () => {
 
   const handleClassChange = (e) => {
     setSelectedClass(e.target.value);
-    // In a real app, you would fetch students for the selected class
     setAttendance(students.map(student => ({
       studentId: student.id,
       status: 'Present'
@@ -32,7 +31,6 @@ const Attendance = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real app, you would submit attendance to the server
     console.log('Attendance submitted:', {
       class: selectedClass,
       date: selectedDate,

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Sidebar from '../../Components/DashboardSideBar';
-import Header from '../../Components/DashboardHeader';
+import Sidebar from '../../components/DashboardSideBar';
+import Header from '../../components/DashboardHeader';
 import Timetable from './pages/Timetable/Timetable';
 import Announcements from './pages/Announcements/Announcements';
-import EditProfile from '../../Components/EditProfile';
+import EditProfile from '../../components/EditProfile';
 import './styles/App.css';
 
 function StudentApp() {

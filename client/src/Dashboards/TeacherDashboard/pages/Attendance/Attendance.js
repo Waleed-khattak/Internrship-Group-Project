@@ -1,38 +1,53 @@
 import React, { useState } from 'react';
 import './Attendance.css';
 
+const getAllClasses = () => {
+  const stored = localStorage.getItem("classesData");
+  return stored ? JSON.parse(stored) : [];
+};
+
+const getAllStudents = () => {
+  const stored = localStorage.getItem("allStudents");
+  return stored ? JSON.parse(stored) : [];
+};
+
 const Attendance = () => {
   const [selectedClass, setSelectedClass] = useState('');
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
   const [attendance, setAttendance] = useState([]);
+  const [classes] = useState(getAllClasses);
+  const allStudents = getAllStudents();
 
-  const classes = ['10th A', '9th B', '8th C', '11th A', '7th B'];
-  const students = [
-    { id: 1, name: 'Ali Ahmed', rollNo: '101' },
-    { id: 2, name: 'Fatima Khan', rollNo: '205' },
-    { id: 3, name: 'Usman Ali', rollNo: '312' },
-    { id: 4, name: 'Ayesha Malik', rollNo: '415' },
-    { id: 5, name: 'Bilal Hassan', rollNo: '523' }
-  ];
+  // filter students for selected class
+  const filteredStudents = allStudents.filter(
+    student => student.class === selectedClass
+  );
 
   const handleClassChange = (e) => {
-    setSelectedClass(e.target.value);
-    // In a real app, you would fetch students for the selected class
-    setAttendance(students.map(student => ({
-      studentId: student.id,
-      status: 'Present'
-    })));
+    const cls = e.target.value;
+    setSelectedClass(cls);
+
+    // default attendance "Present"
+    setAttendance(
+      allStudents
+        .filter(student => student.class === cls)
+        .map(student => ({
+          studentId: student.id,
+          status: 'Present'
+        }))
+    );
   };
 
   const handleStatusChange = (studentId, status) => {
-    setAttendance(prev => prev.map(item =>
-      item.studentId === studentId ? { ...item, status } : item
-    ));
+    setAttendance(prev =>
+      prev.map(item =>
+        item.studentId === studentId ? { ...item, status } : item
+      )
+    );
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real app, you would submit attendance to the server
     console.log('Attendance submitted:', {
       class: selectedClass,
       date: selectedDate,
@@ -59,7 +74,7 @@ const Attendance = () => {
                 <select value={selectedClass} onChange={handleClassChange} required>
                   <option value="">Select a class</option>
                   {classes.map(cls => (
-                    <option key={cls} value={cls}>{cls}</option>
+                    <option key={cls.id} value={cls.name}>{cls.name}</option>
                   ))}
                 </select>
               </div>
@@ -86,7 +101,7 @@ const Attendance = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {students.map(student => {
+                      {filteredStudents.map(student => {
                         const attendanceRecord = attendance.find(a => a.studentId === student.id);
                         return (
                           <tr key={student.id}>
@@ -133,59 +148,8 @@ const Attendance = () => {
           </form>
         </div>
       </div>
-
-      <div className="content-card">
-        <div className="card-header">
-          <h3>Attendance Reports</h3>
-        </div>
-        <div className="card-body">
-          <div className="report-filters">
-            <div className="form-group">
-              <label>Select Class</label>
-              <select>
-                <option value="">All Classes</option>
-                {classes.map(cls => (
-                  <option key={cls} value={cls}>{cls}</option>
-                ))}
-              </select>
-            </div>
-            <div className="form-group">
-              <label>Month</label>
-              <select>
-                <option value="">Select Month</option>
-                <option value="1">January</option>
-                <option value="2">February</option>
-                <option value="3">March</option>
-                <option value="4">April</option>
-                <option value="5">May</option>
-                <option value="6">June</option>
-                <option value="7">July</option>
-                <option value="8">August</option>
-                <option value="9">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option> 
-                </select>
-            </div>
-            <div className="form-group">
-              <label>Year</label>
-              <select>
-                <option value="">Select Year</option>
-                <option value="2022">2022</option>
-                <option value="2023">2023</option>
-                <option value="2024">2024</option>
-                <option value="2025">2025</option>
-                </select>
-            </div>
-            <div className="form-actions">
-              <button type="button" className="btn-secondary">
-                Generate Report
-                </button>
-            </div>
-            </div>
-            </div>
-        </div>
     </div>
-    );
+  );
 };
+
 export default Attendance;

@@ -311,3 +311,27 @@
     left: -50px;
   }
 }
+.dropdown-menu {
+  min-width: max-content;  /* jitna content ho utni width le */
+  padding: 6px 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 16px;
+  width: 100%;
+  white-space: nowrap;  
+}
+
+.dropdown-item .arrow {
+  flex-shrink: 0; 
+}
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  gap: 70px;  
+}
