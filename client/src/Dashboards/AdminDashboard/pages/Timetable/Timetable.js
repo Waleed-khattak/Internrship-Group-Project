@@ -1,31 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Timetable.css';
 
 const Timetable = () => {
   const [selectedClass, setSelectedClass] = useState('10th A');
-  const [timetable, setTimetable] = useState([
-    { id: 1, class: '10th A', day: 'Monday', periods: [
-      { time: '8:00-9:00', subject: 'Mathematics', teacher: 'Mr. Ahmed Khan' },
-      { time: '9:00-10:00', subject: 'Physics', teacher: 'Ms. Ayesha Hassan' },
-      { time: '10:00-10:30', subject: 'Break', teacher: '' },
-      { time: '10:30-11:30', subject: 'English', teacher: 'Mr. Usman Malik' },
-      { time: '11:30-12:30', subject: 'Computer Science', teacher: 'Mr. Bilal Ahmed' }
-    ]},
-    { id: 2, class: '10th A', day: 'Tuesday', periods: [
-      { time: '8:00-9:00', subject: 'Science', teacher: 'Ms. Fatima Ali' },
-      { time: '9:00-10:00', subject: 'Mathematics', teacher: 'Mr. Ahmed Khan' },
-      { time: '10:00-10:30', subject: 'Break', teacher: '' },
-      { time: '10:30-11:30', subject: 'Physics', teacher: 'Ms. Ayesha Hassan' },
-      { time: '11:30-12:30', subject: 'English', teacher: 'Mr. Usman Malik' }
-    ]},
-    { id: 3, class: '9th B', day: 'Monday', periods: [
-      { time: '8:00-9:00', subject: 'English', teacher: 'Mr. Usman Malik' },
-      { time: '9:00-10:00', subject: 'Science', teacher: 'Ms. Fatima Ali' },
-      { time: '10:00-10:30', subject: 'Break', teacher: '' },
-      { time: '10:30-11:30', subject: 'Mathematics', teacher: 'Mr. Ahmed Khan' },
-      { time: '11:30-12:30', subject: 'Computer Science', teacher: 'Mr. Bilal Ahmed' }
-    ]}
-  ]);
+   const getAllClasses = () => {
+  const stored = localStorage.getItem("classesData");
+  return stored ? JSON.parse(stored) : [
+    "10th A",
+    "9th B",
+    "8th C"
+  ];
+};
+  const getStoredTimetable = () => {
+    const stored = localStorage.getItem('timetableData');
+    return stored ? JSON.parse(stored) : [
+      { id: 1, class: '10th A', day: 'Monday', periods: [
+        { time: '8:00-9:00', subject: 'Mathematics', teacher: 'Mr. Ahmed Khan' },
+        { time: '9:00-10:00', subject: 'Physics', teacher: 'Ms. Ayesha Hassan' },
+        { time: '10:00-10:30', subject: 'Break', teacher: '' },
+        { time: '10:30-11:30', subject: 'English', teacher: 'Mr. Usman Malik' },
+        { time: '11:30-12:30', subject: 'Computer Science', teacher: 'Mr. Bilal Ahmed' }
+      ]},
+      { id: 2, class: '10th A', day: 'Tuesday', periods: [
+        { time: '8:00-9:00', subject: 'Science', teacher: 'Ms. Fatima Ali' },
+        { time: '9:00-10:00', subject: 'Mathematics', teacher: 'Mr. Ahmed Khan' },
+        { time: '10:00-10:30', subject: 'Break', teacher: '' },
+        { time: '10:30-11:30', subject: 'Physics', teacher: 'Ms. Ayesha Hassan' },
+        { time: '11:30-12:30', subject: 'English', teacher: 'Mr. Usman Malik' }
+      ]}
+    ];
+  };
+
+  const [timetable, setTimetable] = useState(getStoredTimetable);
+  useEffect(() => {
+    localStorage.setItem('timetableData', JSON.stringify(timetable));
+  }, [timetable]);
 
   const [showAddForm, setShowAddForm] = useState(false);
   const [formData, setFormData] = useState({
@@ -40,7 +49,7 @@ const Timetable = () => {
     ]
   });
 
-  const classes = ['10th A', '9th B', '8th C', '11th A', '7th B'];
+  const [classes,setClasses] =useState(getAllClasses) ;
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const subjects = ['Mathematics', 'Science', 'English', 'Physics', 'Computer Science', 'Chemistry', 'Biology'];
   const teachers = ['Mr. Ahmed Khan', 'Ms. Fatima Ali', 'Mr. Usman Malik', 'Ms. Ayesha Hassan', 'Mr. Bilal Ahmed'];
@@ -49,17 +58,13 @@ const Timetable = () => {
     const { value } = e.target;
     const updatedPeriods = [...formData.periods];
     updatedPeriods[periodIndex][field] = value;
-    
-    setFormData({
-      ...formData,
-      periods: updatedPeriods
-    });
+    setFormData({ ...formData, periods: updatedPeriods });
   };
 
   const handleAddTimetable = (e) => {
     e.preventDefault();
     const newTimetable = {
-      id: timetable.length + 1,
+      id: Date.now(), 
       ...formData
     };
     setTimetable([...timetable, newTimetable]);
@@ -119,8 +124,8 @@ const Timetable = () => {
                   >
                     <option value="">Select Class</option>
                     {classes.map(cls => (
-                      <option key={cls} value={cls}>{cls}</option>
-                    ))}
+  <option key={cls.id} value={cls.name}>{cls.name}</option>
+))}
                   </select>
                 </div>
                 <div className="form-group">
@@ -155,7 +160,7 @@ const Timetable = () => {
                           <select
                             value={period.subject}
                             onChange={(e) => handleInputChange(e, index, 'subject')}
-                            required={period.subject !== 'Break'}
+                            required
                           >
                             <option value="">Select Subject</option>
                             {subjects.map(subject => (
@@ -165,7 +170,7 @@ const Timetable = () => {
                           <select
                             value={period.teacher}
                             onChange={(e) => handleInputChange(e, index, 'teacher')}
-                            required={period.subject !== 'Break'}
+                            required
                           >
                             <option value="">Select Teacher</option>
                             {teachers.map(teacher => (
@@ -198,9 +203,9 @@ const Timetable = () => {
           <div className="class-filter">
             <label>Select Class:</label>
             <select value={selectedClass} onChange={(e) => setSelectedClass(e.target.value)}>
-              {classes.map(cls => (
-                <option key={cls} value={cls}>{cls}</option>
-              ))}
+            {classes.map(cls => (
+  <option key={cls.id} value={cls.name}>{cls.name}</option>
+))}
             </select>
           </div>
         </div>
@@ -248,5 +253,4 @@ const Timetable = () => {
     </div>
   );
 };
-
 export default Timetable;

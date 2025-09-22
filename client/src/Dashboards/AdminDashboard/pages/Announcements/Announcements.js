@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Announcements.css';
 
 const Announcements = () => {
-  const [announcements, setAnnouncements] = useState([
-    { id: 1, title: 'School Holiday', content: 'School will remain closed on Friday for a public holiday.', date: '2023-10-05', target: 'All' },
-    { id: 2, title: 'Exam Schedule', content: 'Mid-term exams will begin from next week. Please check the schedule.', date: '2023-10-03', target: 'Students' },
-    { id: 3, title: 'Teacher Meeting', content: 'There will be a staff meeting tomorrow at 3 PM in the conference room.', date: '2023-10-01', target: 'Teachers' },
-    { id: 4, title: 'Fee Submission', content: 'Last date for fee submission is 15th of this month.', date: '2023-09-28', target: 'Parents' }
-  ]);
+  const [announcements, setAnnouncements] = useState([]);
 
   const [showAddForm, setShowAddForm] = useState(false);
   const [formData, setFormData] = useState({
@@ -16,6 +11,21 @@ const Announcements = () => {
     target: 'All',
     date: new Date().toISOString().split('T')[0]
   });
+  useEffect(() => {
+    const stored = localStorage.getItem("announcements");
+    if (stored) {
+      setAnnouncements(JSON.parse(stored));
+    } else {
+      const initial = [
+        { id: 1, title: 'School Holiday', content: 'School will remain closed on Friday for a public holiday.', date: '2023-10-05', target: 'All' },
+        { id: 2, title: 'Exam Schedule', content: 'Mid-term exams will begin from next week. Please check the schedule.', date: '2023-10-03', target: 'Students' },
+        { id: 3, title: 'Teacher Meeting', content: 'There will be a staff meeting tomorrow at 3 PM in the conference room.', date: '2023-10-01', target: 'Teachers' },
+        { id: 4, title: 'Fee Submission', content: 'Last date for fee submission is 15th of this month.', date: '2023-09-28', target: 'Parents' }
+      ];
+      setAnnouncements(initial);
+      localStorage.setItem("announcements", JSON.stringify(initial));
+    }
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,26 +34,29 @@ const Announcements = () => {
       [name]: value
     });
   };
-
   const handleAddAnnouncement = (e) => {
     e.preventDefault();
     const newAnnouncement = {
-      id: announcements.length + 1,
+      id: Date.now(), 
       ...formData
     };
-    setAnnouncements([newAnnouncement, ...announcements]);
+    const updated = [newAnnouncement, ...announcements];
+    setAnnouncements(updated);
+    localStorage.setItem("announcements", JSON.stringify(updated));
+
     setFormData({ title: '', content: '', target: 'All', date: new Date().toISOString().split('T')[0] });
     setShowAddForm(false);
   };
-
   const handleDeleteAnnouncement = (id) => {
-    setAnnouncements(announcements.filter(announcement => announcement.id !== id));
+    const updated = announcements.filter(announcement => announcement.id !== id);
+    setAnnouncements(updated);
+    localStorage.setItem("announcements", JSON.stringify(updated));
   };
 
   return (
     <div className="announcements-page">
       <div className="page-header">
-        <h2>Announcements</h2>
+        <h2>Announcements (Admin)</h2>
         <button 
           className="btn-primary"
           onClick={() => setShowAddForm(true)}
@@ -145,6 +158,7 @@ const Announcements = () => {
                 </div>
               </div>
             ))}
+            {announcements.length === 0 && <p>No announcements available.</p>}
           </div>
         </div>
       </div>

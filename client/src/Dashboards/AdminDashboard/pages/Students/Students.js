@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import './Students.css';
 
 const Students = () => {
-  const [students, setStudents] = useState([
-    { id: 1, name: 'Ali Ahmed', class: '10th A', rollNo: '101', status: 'Active' },
+  const stored=localStorage.getItem("allStudents");
+  const getAllStudents=stored?JSON.parse(stored):[{ id: 1, name: 'Ali Ahmed', class: '10th A', rollNo: '101', status: 'Active' },
     { id: 2, name: 'Fatima Khan', class: '9th B', rollNo: '205', status: 'Active' },
     { id: 3, name: 'Usman Ali', class: '8th C', rollNo: '312', status: 'Inactive' },
     { id: 4, name: 'Ayesha Malik', class: '11th A', rollNo: '415', status: 'Active' },
-    { id: 5, name: 'Bilal Hassan', class: '7th B', rollNo: '523', status: 'Active' }
-  ]);
-
+    { id: 5, name: 'Bilal Hassan', class: '7th B', rollNo: '523', status: 'Active' }];
+    const [students,setStudents]=useState(getAllStudents);
   const [showAddForm, setShowAddForm] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -32,7 +31,9 @@ const Students = () => {
       id: students.length + 1,
       ...formData
     };
-    setStudents([...students, newStudent]);
+    const updatedStudents = [...students, newStudent];
+  setStudents(updatedStudents);
+  localStorage.setItem("allStudents", JSON.stringify(updatedStudents));
     setFormData({ name: '', class: '', rollNo: '', status: 'Active' });
     setShowAddForm(false);
   };

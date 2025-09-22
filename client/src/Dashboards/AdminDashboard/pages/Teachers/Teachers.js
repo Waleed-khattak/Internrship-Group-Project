@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Teachers.css';
 
 const Teachers = () => {
-  const [teachers, setTeachers] = useState([
-    { id: 1, name: 'Mr. Ahmed Khan', subject: 'Mathematics', classes: '10th A, 9th B', status: 'Active' },
-    { id: 2, name: 'Ms. Fatima Ali', subject: 'Science', classes: '11th A, 8th C', status: 'Active' },
-    { id: 3, name: 'Mr. Usman Malik', subject: 'English', classes: '10th B, 7th A', status: 'Active' },
-    { id: 4, name: 'Ms. Ayesha Hassan', subject: 'Physics', classes: '11th A, 12th A', status: 'Active' },
-    { id: 5, name: 'Mr. Bilal Ahmed', subject: 'Computer Science', classes: '9th A, 10th C', status: 'Inactive' }
-  ]);
-
+  const stored = localStorage.getItem("allTeachers");
+  const [teachers, setTeachers] = useState(
+    stored ? JSON.parse(stored) : [
+      { id: 1, name: 'Mr. Ahmed Khan', subject: 'Mathematics', classes: '10th A, 9th B', status: 'Active' },
+      { id: 2, name: 'Ms. Fatima Ali', subject: 'Science', classes: '11th A, 8th C', status: 'Active' },
+      { id: 3, name: 'Mr. Usman Malik', subject: 'English', classes: '10th B, 7th A', status: 'Active' },
+      { id: 4, name: 'Ms. Ayesha Hassan', subject: 'Physics', classes: '11th A, 12th A', status: 'Active' },
+      { id: 5, name: 'Mr. Bilal Ahmed', subject: 'Computer Science', classes: '9th A, 10th C', status: 'Inactive' }
+    ]
+  );
+  useEffect(() => {
+    localStorage.setItem("allTeachers", JSON.stringify(teachers));
+  }, [teachers]);
   const [showAddForm, setShowAddForm] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -17,7 +22,6 @@ const Teachers = () => {
     classes: '',
     status: 'Active'
   });
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -25,7 +29,6 @@ const Teachers = () => {
       [name]: value
     });
   };
-
   const handleAddTeacher = (e) => {
     e.preventDefault();
     const newTeacher = {
@@ -36,7 +39,6 @@ const Teachers = () => {
     setFormData({ name: '', subject: '', classes: '', status: 'Active' });
     setShowAddForm(false);
   };
-
   const handleDeleteTeacher = (id) => {
     setTeachers(teachers.filter(teacher => teacher.id !== id));
   };
