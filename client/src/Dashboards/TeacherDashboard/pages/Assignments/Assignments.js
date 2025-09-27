@@ -1,19 +1,6 @@
 import React, { useState } from 'react';
 import './Assignments.css';
 
-// Sample classes data (since localStorage is not available in this environment)
-// In your actual project, you can restore the localStorage functionality
-// const sampleClasses = [
-//   { id: 1, name: 'Grade 1-A' },
-//   { id: 2, name: 'Grade 1-B' },
-//   { id: 3, name: 'Grade 2-A' },
-//   { id: 4, name: 'Grade 2-B' },
-//   { id: 5, name: 'Grade 3-A' },
-//   { id: 6, name: 'Grade 3-B' }
-// ];
-
-// For your actual project, uncomment these functions to use localStorage:
-
 const getAllClasses = () => {
   const stored = localStorage.getItem("classesData");
   return stored ? JSON.parse(stored) : [];
@@ -30,8 +17,8 @@ const saveAssignments = (assignments) => {
 
 
 const Assignments = () => {
-  const [assignments, setAssignments] = useState([]);
-  const [classes] = useState(getAllClasses); // Change to useState(getAllClasses) in your project
+  const [assignments, setAssignments] = useState(getAllAssignments());
+  const [classes] = useState(getAllClasses); 
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [selectedClass, setSelectedClass] = useState('');
@@ -138,7 +125,7 @@ const Assignments = () => {
     if (window.confirm('Are you sure you want to delete this assignment?')) {
       const updatedAssignments = assignments.filter(assignment => assignment.id !== id);
       setAssignments(updatedAssignments);
-      saveAssignments(updatedAssignments); // Uncomment for localStorage
+      saveAssignments(updatedAssignments); 
     }
   };
 

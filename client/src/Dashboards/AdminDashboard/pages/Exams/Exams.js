@@ -1,14 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import './Exams.css';
 
 const Exams = () => {
-  const [exams, setExams] = useState([
+  const defaultExams = [
     { id: 1, name: 'Mid-Term Exams', class: '10th A', subject: 'Mathematics', date: '2023-10-15', status: 'Scheduled' },
     { id: 2, name: 'Final Exams', class: '9th B', subject: 'Science', date: '2023-12-05', status: 'Scheduled' },
     { id: 3, name: 'Unit Test', class: '8th C', subject: 'English', date: '2023-09-20', status: 'Completed' },
     { id: 4, name: 'Quarterly Exams', class: '11th A', subject: 'Physics', date: '2023-11-10', status: 'Scheduled' }
-  ]);
+  ];
+  const loadExamsFromStorage = () => {
+    try {
+      const savedExams = localStorage.getItem('exams');
+      if (savedExams) {
+        return JSON.parse(savedExams);
+      }
+      return defaultExams;
+    } catch (error) {
+      console.error('Error loading exams from localStorage:', error);
+      return defaultExams;
+    }
+  };
 
+const [exams, setExams] = useState(loadExamsFromStorage);
   const [showAddForm, setShowAddForm] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -20,7 +33,13 @@ const Exams = () => {
 
   const classes = ['10th A', '9th B', '8th C', '11th A', '7th B'];
   const subjects = ['Mathematics', 'Science', 'English', 'Physics', 'Computer Science'];
-
+  useEffect(() => {
+    try {
+      localStorage.setItem('exams', JSON.stringify(exams));
+    } catch (error) {
+      console.error('Error saving exams to localStorage:', error);
+    }
+  }, [exams]);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -43,11 +62,18 @@ const Exams = () => {
   const handleDeleteExam = (id) => {
     setExams(exams.filter(exam => exam.id !== id));
   };
-
+   const clearAllData = () => {
+    if (window.confirm('Are you sure you want to clear all exam data? This action cannot be undone.')) {
+      localStorage.removeItem('exams');
+      setExams(defaultExams);
+    }
+  };
+  
   return (
     <div className="exams-page">
       <div className="page-header">
         <h2>Exam Management</h2>
+        
         <button 
           className="btn-primary"
           onClick={() => setShowAddForm(true)}

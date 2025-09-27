@@ -1,3 +1,26 @@
-@import './global.css';
+.student-app {
+  display: flex;
+  min-height: 100vh;
+  background-color: #F4F7FB;
+  font-family: 'Space Grotesk', sans-serif;
+}
 
-/* App-specific styles */
+.student-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px;
+}
+
+.student-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .student-main {
+    margin-left: 0;
+  }
+}

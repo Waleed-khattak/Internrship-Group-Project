@@ -1,0 +1,89 @@
+.assignment-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.assignments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.assignment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #F4F7FB;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.assignment-item:hover {
+  background-color: #E9EFF9;
+}
+
+.assignment-info {
+  flex: 1;
+}
+
+.assignment-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #051634;
+  margin: 0 0 5px 0;
+}
+
+.assignment-subject {
+  font-size: 14px;
+  color: #406AFF;
+  margin: 0 0 5px 0;
+}
+
+.assignment-due {
+  font-size: 12px;
+  color: #343434;
+  margin: 0;
+}
+
+.assignment-status {
+  display: flex;
+  align-items: center;
+}
+
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge.submitted {
+  background-color: #E6F4EA;
+  color: #34A853;
+}
+
+.status-badge.pending {
+  background-color: #FEF7E0;
+  color: #FBBC04;
+}
+
+.status-badge.late {
+  background-color: #FCE8E6;
+  color: #EA4335;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .assignment-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .assignment-status {
+    align-self: flex-end;
+  }
+}

@@ -1,0 +1,58 @@
+.announcement-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.announcements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.announcement-item {
+  padding: 15px;
+  background-color: #F4F7FB;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.announcement-item:hover {
+  background-color: #E9EFF9;
+}
+
+.announcement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.announcement-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #051634;
+  margin: 0;
+}
+
+.announcement-date {
+  font-size: 12px;
+  color: #343434;
+}
+
+.announcement-content {
+  font-size: 14px;
+  color: #343434;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .announcement-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+}

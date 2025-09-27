@@ -3,7 +3,6 @@ import "../Login/LoginPage.css";
 import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
 
-
 export default function SignUp() {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
@@ -13,10 +12,9 @@ export default function SignUp() {
   const [captcha, setCaptcha] = useState("");
   const [generatedCaptcha, setGeneratedCaptcha] = useState(generateCaptcha());
   const [role, setRole] = useState("Student");
+  const [modalMessage, setModalMessage] = useState(""); // modal state
   const navigate = useNavigate();
-  const goToLoginPage = () => {
-    navigate("/login");
-  };
+
   function generateCaptcha() {
     const chars = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
     let result = "";
@@ -31,39 +29,53 @@ export default function SignUp() {
     setCaptcha("");
   };
 
-  
-const handleSubmit = async () => {
-  if (password !== confirmPassword) {
-    alert("Passwords do not match");
-    return;
-  }
-  if (captcha.toUpperCase() !== generatedCaptcha) {
-    alert("Captcha Invalid");
-    return;
-  }
+  const closeModal = () => setModalMessage("");
 
-  try {
-    const response = await fetch("http://localhost:5000/api/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, username, email, password, role }),
-    });
+  const goToLoginPage = () => {
+    navigate("/login");
+  };
 
-    const data = await response.json();
-    if (response.ok) {
-      alert("Registration Successful");
-      navigate("/login");
-    } else {
-      alert(data.msg);
+  const handleSubmit = async () => {
+    if (password !== confirmPassword) {
+      setModalMessage("Passwords do not match");
+      return;
     }
-  } catch (error) {
-    alert("Server error, please try again later.");
-  }
-};
+    if (captcha.toUpperCase() !== generatedCaptcha) {
+      setModalMessage("Captcha Invalid");
+      return;
+    }
 
+    try {
+      const response = await fetch("http://localhost:5000/api/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, username, email, password, role }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        setModalMessage("Registration Successful");
+        setTimeout(() => navigate("/login"), 1500);
+      } else {
+        setModalMessage(data.msg || "Registration failed");
+      }
+    } catch (error) {
+      setModalMessage("Server error, please try again later.");
+    }
+  };
 
   return (
     <div className="loginMainDiv">
+      {/* Modal */}
+      {modalMessage && (
+        <div className="modalOverlay">
+          <div className="modalContent">
+            <p>{modalMessage}</p>
+            <button className="modalBtn" onClick={closeModal}>OK</button>
+          </div>
+        </div>
+      )}
+
       <div className="verifiedSchool">
         <div className="verifiedSchoolsHeading">
           Our Verified Schools around Pakistan
@@ -97,34 +109,19 @@ const handleSubmit = async () => {
             Please register to your account and start the adventure
           </p>
         </div>
+
         <div className="name">
           <div className="heading">NAME</div>
-          <input
-            type="text"
-            placeholder="Enter name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+          <input type="text" placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} />
         </div>
         <div className="username">
           <div className="heading">USERNAME</div>
-          <input
-            type="text"
-            placeholder="Enter username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
+          <input type="text" placeholder="Enter username" value={username} onChange={(e) => setUsername(e.target.value)} />
         </div>
         <div className="email">
           <div className="heading">EMAIL</div>
-          <input
-            type="text"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <input type="text" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
-
         <div className="role">
           <div className="heading">ROLE</div>
           <select value={role} onChange={(e) => setRole(e.target.value)}>
@@ -132,39 +129,21 @@ const handleSubmit = async () => {
             <option value="Student">Student</option>
           </select>
         </div>
-
-
         <div className="password">
           <div className="heading">PASSWORD</div>
-          <input
-            type="password"
-            placeholder="........"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <input type="password" placeholder="........" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         <div className="confirmPassword">
           <div className="heading">CONFIRM PASSWORD</div>
-          <input
-            type="password"
-            placeholder="........"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
+          <input type="password" placeholder="........" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
         </div>
+
         {/* Captcha Section */}
         <div className="captcha">
           <div className="heading">Captcha</div>
-
           <div className="captchaRow">
             <div className="captchaBox">
-              <svg
-                className="captchaSvg"
-                width="160"
-                height="56"
-                viewBox="0 0 160 56"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg className="captchaSvg" width="160" height="56" viewBox="0 0 160 56" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="g1" x1="0" x2="1">
                     <stop offset="0%" stopColor="#f7f7f9" />
@@ -172,65 +151,72 @@ const handleSubmit = async () => {
                   </linearGradient>
                 </defs>
                 <rect width="160" height="56" fill="url(#g1)" rx="8" />
-
                 <g className="noiseLines">
                   <line x1="0" y1="10" x2="160" y2="20" />
                   <line x1="0" y1="30" x2="160" y2="40" />
                   <line x1="10" y1="0" x2="20" y2="56" />
                 </g>
-
-                <text
-                  x="12"
-                  y="36"
-                  className="captchaText"
-                  fontFamily="monospace"
-                >
-                  {generatedCaptcha}
-                </text>
-
-                <path
-                  className="decorPath"
-                  d="M5 45 C40 10, 120 10, 155 45"
-                  fill="transparent"
-                />
+                <text x="12" y="36" className="captchaText" fontFamily="monospace">{generatedCaptcha}</text>
+                <path className="decorPath" d="M5 45 C40 10, 120 10, 155 45" fill="transparent" />
               </svg>
             </div>
-
-            <button
-              type="button"
-              className="btn refreshBtn btn-success"
-              onClick={refreshCaptcha}
-              aria-label="Refresh captcha"
-            >
-              ⟳
-            </button>
+            <button type="button" className="btn refreshBtn btn-success" onClick={refreshCaptcha} aria-label="Refresh captcha">⟳</button>
           </div>
-
-          <input
-            type="text"
-            className="captchaInput"
-            placeholder="Enter Captcha"
-            value={captcha}
-            onChange={(e) => setCaptcha(e.target.value)}
-            maxLength={6}
-          />
+          <input type="text" className="captchaInput" placeholder="Enter Captcha" value={captcha} onChange={(e) => setCaptcha(e.target.value)} maxLength={6} />
         </div>
 
         {/* Buttons */}
         <div className="buttons">
-          <button
-            className="btn signUpBtn btn-primary my-3"
-            onClick={handleSubmit}
-          >
-            Register
-          </button>
+          <button className="btn signUpBtn btn-primary my-3" onClick={handleSubmit}>Register</button>
         </div>
 
         <div className="donthaveAccount">
-          Already have an account?
-          <span onClick={goToLoginPage}> Login Here</span>
+          Already have an account?<span onClick={goToLoginPage}> Login Here</span>
         </div>
       </div>
+
+      {/* Modal CSS */}
+      <style>{`
+        .modalOverlay {
+          position: fixed;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+          background: rgba(0,0,0,0.5);
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          z-index: 9999;
+        }
+        .modalContent {
+          background:#fff;
+          padding:20px 30px;
+          border-radius:8px;
+          text-align:center;
+          max-width:300px;
+          box-shadow:0 2px 10px rgba(0,0,0,0.3);
+          animation: fadeIn 0.3s ease;
+        }
+        .modalBtn {
+          margin-top: 15px;
+          padding: 8px 20px;
+          font-size: 16px;
+          font-weight: bold;
+          background: #2563eb;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor:pointer;
+          display:block;
+          margin-left:auto;
+          margin-right:auto;
+        }
+        @keyframes fadeIn {
+          0% {opacity:0; transform: scale(0.9);}
+          100% {opacity:1; transform: scale(1);}
+        }
+      `}</style>
     </div>
   );
 }

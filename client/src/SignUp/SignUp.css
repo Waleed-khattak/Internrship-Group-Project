@@ -4,7 +4,6 @@
   padding-right: 60px;
   margin :0 ;
   align-items: center;
-    margin-left: 25px;
 }
 .donthaveAccount span {
     color: #0E59F2;
@@ -14,4 +13,53 @@
 
 .donthaveAccount span:hover {
     opacity: 0.8;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 1024px) {
+  .signUpBtn {
+    width: 90% !important;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 40px;
+  }
+
+  .donthaveAccount {
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+/* Small devices (phones, 768px and down) */
+@media (max-width: 768px) {
+  .signUpBtn {
+    width: 95% !important;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 20px;
+  }
+
+  .donthaveAccount {
+    font-size: 14px;
+  }
+}
+
+/* Extra small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+  .signUpBtn {
+    width: 100% !important;
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+  }
+
+  .donthaveAccount {
+    font-size: 13px;
+    padding: 0 10px;
+  }
+
+  .donthaveAccount span {
+    font-size: 13px;
+  }
 }

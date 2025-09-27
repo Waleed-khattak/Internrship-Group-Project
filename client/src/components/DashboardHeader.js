@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import ProfileModal from './ProfileModal';
-import './DashboardHeader.css';
+import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import ProfileModal from "./ProfileModal";
+import "./DashboardHeader.css";
 import { logoutUser } from "../utils/auth";
 
 const DashboardHeader = ({ onToggleSidebar, user }) => {
@@ -23,8 +23,8 @@ const DashboardHeader = ({ onToggleSidebar, user }) => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const toggleDropdown = (e) => {
@@ -35,8 +35,8 @@ const DashboardHeader = ({ onToggleSidebar, user }) => {
 
   const handleLogout = () => {
     logoutUser();
-    localStorage.removeItem('token');
-    navigate('/login');
+    localStorage.removeItem("token");
+    navigate("/login");
     setDropdownOpen(false);
   };
 
@@ -75,27 +75,37 @@ const DashboardHeader = ({ onToggleSidebar, user }) => {
 
           {/* Contact */}
           <div className="contact-info" ref={contactRef}>
-            <button className="contact-btn" onClick={() => handleContactClick('phone')}>
+            <button
+              className="contact-btn"
+              onClick={() => handleContactClick("phone")}
+            >
               <i className="fas fa-phone-alt"></i>
             </button>
-            <button className="contact-btn" onClick={() => handleContactClick('email')}>
+            <button
+              className="contact-btn"
+              onClick={() => handleContactClick("email")}
+            >
               <i className="fas fa-envelope"></i>
             </button>
 
-            {contactType === 'phone' && (
+            {contactType === "phone" && (
               <div className="contact-dropdown">
                 <div className="contact-item">
                   <i className="fas fa-phone-alt"></i>
-                  <a href={`tel:${user.phone}`} className="contact-link">{user.phone}</a>
+                  <a href={`tel:${user.phone}`} className="contact-link">
+                    {user.phone}
+                  </a>
                 </div>
               </div>
             )}
 
-            {contactType === 'email' && (
+            {contactType === "email" && (
               <div className="contact-dropdown">
                 <div className="contact-item">
                   <i className="fas fa-envelope"></i>
-                  <a href={`mailto:${user.email}`} className="contact-link">{user.email}</a>
+                  <a href={`mailto:${user.email}`} className="contact-link">
+                    {user.email}
+                  </a>
                 </div>
               </div>
             )}
@@ -103,27 +113,63 @@ const DashboardHeader = ({ onToggleSidebar, user }) => {
 
           {/* User Profile Dropdown */}
           <div className="user-profile" ref={dropdownRef}>
-            <button className="user-info" onClick={toggleDropdown} type="button">
+            <button
+              className="user-info"
+              onClick={toggleDropdown}
+              type="button"
+            >
               <img
-                src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=0E59F2&color=fff`}
+                src={`https://ui-avatars.com/api/?name=${encodeURIComponent(
+                  user.name
+                )}&background=0E59F2&color=fff`}
                 alt={user.name}
               />
               <span>{user.name}</span>
-              <i className={`fas fa-chevron-down ${dropdownOpen ? 'rotate' : ''}`}></i>
+              <i
+                className={`fas fa-chevron-down ${
+                  dropdownOpen ? "rotate" : ""
+                }`}
+              ></i>
             </button>
 
             {dropdownOpen && (
-              <div className="dropdown-menu show">
-                <button type="button" className="dropdown-item" onClick={handleProfile}>
+              <div
+                className="dropdown-menu show"
+                style={{
+                  right: 0,
+                  left: "auto",
+                  minWidth: "190px",
+                  maxWidth: "95vw", // prevent overflow on small screens
+                  top: "calc(100% + 5px)",
+                  boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+                  borderRadius: "8px",
+                  padding: "8px 0",
+                  overflow: "hidden", // ensures items don't overflow
+                  zIndex: 1002,
+                }}
+              >
+                <button
+                  type="button"
+                  className="dropdown-item"
+                  onClick={handleProfile}
+                >
                   <i className="fas fa-user"></i>
                   <span>My Profile</span>
                 </button>
-                <button type="button" className="dropdown-item" onClick={handleSettings}>
+                <button
+                  type="button"
+                  className="dropdown-item"
+                  onClick={handleSettings}
+                >
                   <i className="fas fa-cog"></i>
                   <span>Settings</span>
                 </button>
                 <div className="dropdown-divider"></div>
-                <button type="button" className="dropdown-item" onClick={handleLogout}>
+                <button
+                  type="button"
+                  className="dropdown-item"
+                  onClick={handleLogout}
+                >
                   <i className="fas fa-sign-out-alt"></i>
                   <span>Logout</span>
                 </button>
@@ -133,7 +179,11 @@ const DashboardHeader = ({ onToggleSidebar, user }) => {
         </div>
       </header>
 
-      <ProfileModal isOpen={profileModalOpen} onClose={closeProfileModal} user={user} />
+      <ProfileModal
+        isOpen={profileModalOpen}
+        onClose={closeProfileModal}
+        user={user}
+      />
     </>
   );
 };

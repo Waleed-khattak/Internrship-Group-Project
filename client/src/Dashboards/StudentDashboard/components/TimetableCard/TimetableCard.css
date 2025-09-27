@@ -1,0 +1,98 @@
+.timetable-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #051634;
+  margin: 0;
+}
+
+.view-all-btn {
+  background-color: #F4F7FB;
+  border: 1px solid #E7E7E7;
+  color: #406AFF;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.view-all-btn:hover {
+  background-color: #406AFF;
+  color: white;
+}
+
+.timetable-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.timetable-day {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background-color: #F4F7FB;
+  border-radius: 8px;
+}
+
+.day-name {
+  font-weight: 600;
+  color: #051634;
+  min-width: 100px;
+}
+
+.day-subjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.subject-tag {
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #406AFF;
+  border: 1px solid #E7E7E7;
+}
+
+.more-subjects {
+  font-size: 12px;
+  color: #343434;
+  font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .timetable-day {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .day-name {
+    min-width: auto;
+  }
+}

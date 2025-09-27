@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -9,6 +9,7 @@ export default function LoginPage() {
   const [generatedCaptcha, setGeneratedCaptcha] = useState(generateCaptcha());
   const [role, setRole] = useState("Student");
   const [loading, setLoading] = useState(false);
+  const [modalMessage, setModalMessage] = useState(""); 
   const navigate = useNavigate();
 
   function generateCaptcha() {
@@ -33,10 +34,11 @@ export default function LoginPage() {
     e.preventDefault();
 
     if (captcha.toUpperCase() !== generatedCaptcha) {
-      alert("Captcha Invalid");
+      setModalMessage("Captcha Invalid");
       return;
     }
 
+    setLoading(true);
     try {
       const res = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
@@ -45,37 +47,47 @@ export default function LoginPage() {
       });
 
       const data = await res.json();
+      setLoading(false);
 
       if (!res.ok) {
-        alert(data.msg || "Login failed");
+        setModalMessage(data.msg || "Login failed");
         return;
       }
 
       // Save auth data in localStorage
       localStorage.setItem(
-  "auth",
-  JSON.stringify({
-    token: data.token,
-    user: data.user
-  })
-);
+        "auth",
+        JSON.stringify({ token: data.token, user: data.user })
+      );
 
+      setModalMessage("Login Successful");
 
-      alert("Login Successful");
-
-      if (role === "Admin") navigate("/admin");
-      else if (role === "Teacher") navigate("/teacher");
-      else if (role === "Student") navigate("/student");
-
+      setTimeout(() => {
+        if (role === "Admin") navigate("/admin");
+        else if (role === "Teacher") navigate("/teacher");
+        else if (role === "Student") navigate("/student");
+      }, 1000);
     } catch (error) {
+      setLoading(false);
       console.error(error);
-      alert("Server error. Please try again later.");
+      setModalMessage("Server error. Please try again later.");
     }
   };
 
-
   return (
     <div className="loginMainDiv">
+      {/* Modal */}
+      {modalMessage && (
+        <div className="customModal">
+          <div className="modalContent">
+            <p>{modalMessage}</p>
+            <button className="btn btn-primary" onClick={() => setModalMessage("")}>
+              OK
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="verifiedSchool">
         <div className="verifiedSchoolsHeading">
           Our Verified Schools around Pakistan
@@ -90,7 +102,7 @@ export default function LoginPage() {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54425.10878999191!2d74.27313175000001!3d31.5203694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483f1f8c36b%3A0x43e40305ec59cf2d!2sLahore%2C%20Pakistan!5e0!3m2!1sen!2s!4v1694500000000!5m2!1sen!2s"
             width="100%"
             height="100%"
-            style={{ border: "0" }}
+            style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -131,7 +143,6 @@ export default function LoginPage() {
             </select>
           </div>
 
-
           <div className="password">
             <div className="heading">PASSWORD</div>
             <input
@@ -167,19 +178,10 @@ export default function LoginPage() {
                     <line x1="0" y1="30" x2="160" y2="40" />
                     <line x1="10" y1="0" x2="20" y2="56" />
                   </g>
-                  <text
-                    x="12"
-                    y="36"
-                    className="captchaText"
-                    fontFamily="monospace"
-                  >
+                  <text x="12" y="36" className="captchaText" fontFamily="monospace">
                     {generatedCaptcha}
                   </text>
-                  <path
-                    className="decorPath"
-                    d="M5 45 C40 10, 120 10, 155 45"
-                    fill="transparent"
-                  />
+                  <path className="decorPath" d="M5 45 C40 10, 120 10, 155 45" fill="transparent" />
                 </svg>
               </div>
               <button
@@ -204,16 +206,17 @@ export default function LoginPage() {
 
           {/* Buttons */}
           <div className="buttons">
-            <button className="btn btn-primary my-3" type="submit" disabled={loading}>
+            <button style={{ display: "block", textAlign: "center"}} className="btn btn-primary my-3" type="submit" disabled={loading}>
               {loading ? "Logging in..." : "Login"}
             </button>
-            <div className="forgetPassBtn">Forget Your Password?</div>
+            <div className="forgetPassBtn">
+              <Link to="/forgot-password">Forgot Your Password?</Link>
+            </div>
           </div>
         </form>
 
         <div className="donthaveAccount">
-          Don't have an account?
-          <span onClick={goToSignUpPage}> Register here</span>
+          Don't have an account? <span onClick={goToSignUpPage}> Register here</span>
         </div>
       </div>
     </div>

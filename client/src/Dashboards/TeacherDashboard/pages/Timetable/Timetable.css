@@ -205,3 +205,46 @@
         padding: 30px 20px;
     }
 }
+
+/* Teacher selector container */
+.teacher-selector {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Label */
+.teacher-selector label {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Select dropdown styling */
+.teacher-selector select {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Hover and focus */
+.teacher-selector select:hover {
+  border-color: #007bff;
+}
+
+.teacher-selector select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Optional: add a small arrow icon */
+.teacher-selector select::-ms-expand {
+  display: none;
+}

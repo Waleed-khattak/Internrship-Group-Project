@@ -1,0 +1,237 @@
+.student-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, #051634 0%, #0A2C5E 100%);
+  color: white;
+  transition: width 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.student-sidebar.expanded {
+  width: 250px;
+}
+
+.student-sidebar.collapsed {
+  width: 70px;
+}
+
+.sidebar-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-container .logo {
+  width: 170px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  object-fit: contain;
+}
+
+.logo-container h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: white;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu {
+  flex: 1;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 20px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.menu-item:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.menu-item.active {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: #F8E559;
+}
+
+.menu-item i {
+  width: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.menu-item span {
+  font-weight: 500;
+}
+
+.sidebar-footer {
+  padding: 15px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-details {
+    text-decoration: none !important; /* Remove underline */
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.user-details:hover {
+    opacity: 0.8;
+}
+
+.user-name, 
+.user-role {
+    text-decoration: none !important; /* Remove underline from text elements */
+    color: white;
+    margin: 0;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.user-role {
+    font-size: 12px;
+}
+
+/* Remove underline on hover */
+.user-details:hover .user-name,
+.user-details:hover .user-role {
+    text-decoration: none !important;
+}
+
+
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .student-sidebar {
+    transform: translateX(-100%);
+    width: 250px;
+  }
+  
+  .student-sidebar.expanded {
+    transform: translateX(0);
+  }
+}
+
+.hamburger-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #051634;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+/* Update the responsive design section */
+@media (max-width: 1024px) {
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .student-sidebar {
+    transform: translateX(-100%);
+    width: 250px;
+  }
+  
+  .student-sidebar.expanded {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay {
+    display: none;
+  }
+
+  .sidebar-overlay.show {
+    display: block;
+  }
+}

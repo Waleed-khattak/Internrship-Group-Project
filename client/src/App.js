@@ -1,24 +1,29 @@
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import LoginPage from "./Login/LoginPage";
 import SignUp from "./SignUp/SignUp";
 import AdminApp from "./Dashboards/AdminDashboard/AdminApp";
 import StudentApp from "./Dashboards/StudentDashboard/StudentApp";
 import TeacherApp from "./Dashboards/TeacherDashboard/TeacherApp";
 import Header from "./Header/Header";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./Components/ProtectedRoute";
+import Index from './Components/Index';
+import ForgotPasswordFlow from "./pages/ForgotPasswordFlow";
 
 function App() {
-  const location = useLocation();
-
-  const showHeader = location.pathname === "/";
-
   return (
     <>
-      {showHeader && <Header />}
       <Routes>
-        {/* Landing page just shows header */}
-        <Route path="/" element={<div />} />
+        {/* Landing page: show Header + Index */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Header />
+              <Index />
+            </>
+          }
+        />
 
         {/* Auth pages */}
         <Route path="/login" element={<LoginPage />} />
@@ -49,6 +54,8 @@ function App() {
             </ProtectedRoute>
           }
         />
+        
+        <Route path="/forgot-password" element={<ForgotPasswordFlow />} />
       </Routes>
     </>
   );

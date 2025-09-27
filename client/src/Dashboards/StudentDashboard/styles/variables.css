@@ -1,31 +1,85 @@
+/* CSS Variables for Student Dashboard */
+
 :root {
-    --body-font: "Space Grotesk", sans-serif;
-    --heading-font: "Space Grotesk", sans-serif;
-    --text-white: #FFFFFF;
-    --bg-white: #FFFFFF;
-    --btn-white: #FFFFFF;
-    --border-white: #FFFFFF;
-    --black: #000000;
-    --primary-color-1: #0E59F2;
-    --primary-color-2: #F8E559;
-    --primary-color-3: #406AFF;
-    --bg-heading-color: #051634;
-    --text-heading-color: #051634;
-    --btn-heading-color: #131313;
-    --body-color: #343434;
-    --dark-one: #1C1E22;
-    --dark-two: #222429;
-    --color-1: #F4F7FB;
-    --color-2: #737373;
-    --color-3: #0B46BF;
-    --color-4: #CCCCCC;
-    --color-5: #12223e;
-    --color-6: #864af942;
-    --color-7: #07204D;
-    --border-color-1: #E7E7E7;
-    --border-color-2: #E9E9E8;
-    --border-color-3: rgba(19, 19, 19, 0.1);
-    --border-color-4: rgba(19, 19, 19, 0.06);
-    --box-shadow-1: 0px 25px 70px rgba(0, 0, 0, 0.08);
-    --box-shadow-2: 0px 10px 70px rgba(0, 0, 0, 0.1);
+  /* Colors */
+  --primary-blue: #0E59F2;
+  --accent-yellow: #F8E559;
+  --secondary-blue: #406AFF;
+  --dark-blue-text: #051634;
+  --medium-gray-text: #343434;
+  --light-gray-borders: #E7E7E7;
+  --light-background: #F4F7FB;
+  --white: #FFFFFF;
+  
+  /* Status Colors */
+  --success: #34A853;
+  --warning: #FBBC04;
+  --error: #EA4335;
+  --info: #0E59F2;
+  
+  /* Background variants */
+  --success-bg: #E6F4EA;
+  --warning-bg: #FEF7E0;
+  --error-bg: #FCE8E6;
+  --info-bg: #E8F0FE;
+  
+  /* Typography */
+  --font-family: 'Space Grotesk', sans-serif;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  
+  /* Border radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-round: 50%;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Z-index layers */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+  
+  /* Breakpoints */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+}
+
+/* Media queries using CSS variables */
+@media (max-width: 768px) {
+  :root {
+    --spacing-md: 12px;
+    --spacing-lg: 20px;
+    --spacing-xl: 28px;
+  }
 }

@@ -16,9 +16,9 @@ code {
 
 /* Universal container for whole site */
 .container {
-  max-width: 1200px;   /* Adjust to your design, e.g. 1140px, 1280px */
-  margin: 0 auto;      /* Centers the content horizontally */
-  padding: 0 20px;     /* Keeps spacing on small screens */
+  max-width: 1200px;   
+  margin: 0 auto;    
+  padding: 0 20px;     
 }
 
 a {

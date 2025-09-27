@@ -1,0 +1,184 @@
+.assignments-page {
+  padding: 20px;
+}
+
+.assignments-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.filter-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-section label {
+  font-weight: 500;
+  color: #343434;
+}
+
+.filter-section select {
+  padding: 8px 12px;
+  border: 1px solid #E7E7E7;
+  border-radius: 6px;
+  background-color: white;
+  color: #343434;
+}
+
+.assignments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.assignment-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.assignment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.assignment-title-section {
+  flex: 1;
+}
+
+.assignment-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #051634;
+  margin: 0 0 5px 0;
+}
+
+.assignment-subject {
+  font-size: 14px;
+  color: #406AFF;
+  font-weight: 500;
+}
+
+.assignment-status {
+  display: flex;
+  align-items: center;
+}
+
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge.submitted {
+  background-color: #E6F4EA;
+  color: #34A853;
+}
+
+.status-badge.pending {
+  background-color: #FEF7E0;
+  color: #FBBC04;
+}
+
+.status-badge.late {
+  background-color: #FCE8E6;
+  color: #EA4335;
+}
+
+.assignment-details {
+  margin-bottom: 20px;
+}
+
+.assignment-description {
+  font-size: 14px;
+  color: #343434;
+  line-height: 1.5;
+  margin: 0 0 15px 0;
+}
+
+.assignment-attachments h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #051634;
+  margin: 0 0 10px 0;
+}
+
+.attachments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.attachment-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: #F4F7FB;
+  border-radius: 6px;
+}
+
+.attachment-item i {
+  color: #406AFF;
+}
+
+.attachment-item span {
+  flex: 1;
+  font-size: 14px;
+  color: #343434;
+}
+
+.download-btn {
+  background: none;
+  border: none;
+  color: #406AFF;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.download-btn:hover {
+  background-color: rgba(64, 106, 255, 0.1);
+}
+
+.assignment-footer {
+  display: flex;
+  align-items: center;
+}
+
+.due-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #343434;
+  font-size: 14px;
+}
+
+.due-date i {
+  color: #406AFF;
+}
+
+@media (max-width: 768px) {
+  .assignment-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .assignment-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}

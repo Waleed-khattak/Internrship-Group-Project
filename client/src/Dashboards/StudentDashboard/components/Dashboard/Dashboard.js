@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './Dashboard.css';
 
 const Dashboard = () => {
-  // Dummy student data
+  //  student data
   const [user] = useState({
-    name: 'Student User',
+    name: 'Student User', 
     email: 'student@ilmimarkaz.com',
     isEmailVerified: true
   });

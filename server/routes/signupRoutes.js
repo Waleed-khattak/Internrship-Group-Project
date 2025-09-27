@@ -23,14 +23,19 @@ router.post("/", async (req, res) => {
     }
 
     const hashed = await bcrypt.hash(password, 10);
-    const payload = { name, username, email, password: hashed, role: formattedRole };
+    const payload = { name, username, email, password: hashed, role: formattedRole, isEmailVerified: false };
 
     let saved;
     if (formattedRole === "Teacher") saved = await new Teacher(payload).save();
     else saved = await new Student(payload).save();
 
     console.log("✅ New user saved:", { id: saved._id, username: saved.username, email: saved.email, role: saved.role });
-    res.json({ msg: "Registration successful", userId: saved._id });
+    res.json({ msg: "Registration successful", userId: saved._id,
+        name: saved.name,
+        username: saved.username,
+        email: saved.email,
+        role: saved.role,
+        isEmailVerified: saved.isEmailVerified });
   } catch (err) {
     console.error("Signup error:", err);
     if (err.code === 11000) return res.status(400).json({ msg: "Username or email already exists" });
