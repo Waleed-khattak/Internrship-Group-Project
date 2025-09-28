@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Sidebar from '../../Components/DashboardSideBar';
-import Header from '../../Components/DashboardHeader';
+import Sidebar from '../../components/DashboardSideBar';
+import Header from '../../components/DashboardHeader';
 import Dashboard from './components/Dashboard/Dashboard';
 import Classes from './pages/Classes/Classes';
 import Timetable from './pages/Timetable/Timetable';
 import Attendance from './pages/Attendance/Attendance';
 import Exams from './pages/Exams/Exams';
 import Announcements from './pages/Announcements/Announcements';
-import EditProfile from '../../Components/EditProfile';
+import EditProfile from '../../components/EditProfile';
 import './styles/App.css';
 import Assignments from './pages/Assignments/Assignments';
 
