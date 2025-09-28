@@ -1,7 +1,7 @@
 {
-  "name": "ilmi-markaz-admin",
+  "name": "SmartDesk-admin",
   "version": "1.0.0",
-  "description": "Ilmi Markaz School Management System Admin Dashboard",
+  "description": "SmartDesk School Management System Admin Dashboard",
   "main": "src/index.js",
   "scripts": {
     "start": "react-scripts start",
@@ -15,6 +15,7 @@
     "browserify-zlib": "^0.2.0",
     "chart.js": "^4.3.0",
     "crypto-browserify": "^3.12.1",
+    "framer-motion": "^12.23.22",
     "https-browserify": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

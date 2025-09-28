@@ -18,7 +18,7 @@ const Dashboard = () => {
     if (!authData)
       return {
         name: "Student User",
-        email: "student@ilmimarkaz.com",
+        email: "student@SmartDesk.com",
         isEmailVerified: false,
         _id: null,
       };

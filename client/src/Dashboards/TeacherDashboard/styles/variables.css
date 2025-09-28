@@ -6,7 +6,7 @@
     --btn-white: #FFFFFF;
     --border-white: #FFFFFF;
     --black: #000000;
-    --primary-color-1: #0E59F2;
+    --primary-color-1: --primary-color-3;
     --primary-color-2: #F8E559;
     --primary-color-3: #406AFF;
     --bg-heading-color: #051634;

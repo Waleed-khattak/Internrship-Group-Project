@@ -1,31 +1,45 @@
 :root {
-    --body-font: "Space Grotesk", sans-serif;
-    --heading-font: "Space Grotesk", sans-serif;
-    --text-white: #FFFFFF;
-    --bg-white: #FFFFFF;
-    --btn-white: #FFFFFF;
-    --border-white: #FFFFFF;
-    --black: #000000;
-    --primary-color-1: #0E59F2;
-    --primary-color-2: #F8E559;
-    --primary-color-3: #406AFF;
-    --bg-heading-color: #051634;
-    --text-heading-color: #051634;
-    --btn-heading-color: #131313;
-    --body-color: #343434;
-    --dark-one: #1C1E22;
-    --dark-two: #222429;
-    --color-1: #F4F7FB;
-    --color-2: #737373;
-    --color-3: #0B46BF;
-    --color-4: #CCCCCC;
-    --color-5: #12223e;
-    --color-6: #864af942;
-    --color-7: #07204D;
-    --border-color-1: #E7E7E7;
-    --border-color-2: #E9E9E8;
-    --border-color-3: rgba(19, 19, 19, 0.1);
-    --border-color-4: rgba(19, 19, 19, 0.06);
-    --box-shadow-1: 0px 25px 70px rgba(0, 0, 0, 0.08);
-    --box-shadow-2: 0px 10px 70px rgba(0, 0, 0, 0.1);
+  --body-font: "Robot", sans-serif;
+  --heading-font: "Poppins", sans-serif;
+
+  /* Base Colors */
+  --text-white: #FFFFFF;
+  --bg-white: #F9FAFB;
+  --btn-white: #FFFFFF;
+  --border-white: #FFFFFF;
+  --black: #000000;
+
+  /* Primary Palette */
+  --primary-color-1: #FF6B35; 
+  --primary-color-2: #00C49A;   
+  --primary-color-3: #1E90FF;   
+
+  /* Headings / Text */
+  --bg-heading-color: #101820;
+  --text-heading-color: #0F172A;
+  --btn-heading-color: #222222;
+  --body-color: #475569;
+
+  /* Dark Shades */
+  --dark-one: #1A1C1E;
+  --dark-two: #25272B;
+
+  /* Accent / Neutral */
+  --color-1: #F3F4F6;   
+  --color-2: #6B7280;    
+  --color-3: #00c49a;   
+  --color-4: #D1D5DB;    
+  --color-5: #111827;   
+  --color-6: #FBBF24;    
+  --color-7: #047857;    
+
+  /* Borders */
+  --border-color-1: #E5E7EB;
+  --border-color-2: #D1D5DB;
+  --border-color-3: rgba(0, 0, 0, 0.12);
+  --border-color-4: rgba(0, 0, 0, 0.06);
+
+  /* Shadows */
+  --box-shadow-1: 0px 20px 60px rgba(0, 0, 0, 0.08);
+  --box-shadow-2: 0px 8px 40px rgba(0, 0, 0, 0.1);
 }

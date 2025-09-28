@@ -10,7 +10,7 @@
   background: #fff;
   padding: 2.5rem 2rem 2rem 2rem;
   border-radius: 14px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
   width: 100%;
   max-width: 400px;
   text-align: center; /* Add this line */
@@ -18,7 +18,7 @@
 
 .edit-profile-card h2 {
   margin-bottom: 1.5rem;
-  color: #0E59F2;
+  color: --primary-color-3;
   font-size: 1.7rem;
   font-weight: 700;
   text-align: center;
@@ -46,7 +46,7 @@
 }
 
 .form-group input:focus {
-  border: 1.5px solid #0E59F2;
+  border: 1.5px solid --primary-color-3;
   outline: none;
   background: #fff;
 }
@@ -57,7 +57,7 @@
   min-width: 180px;
   max-width: 250px;
   padding: 1rem 2.5rem;
-  background: linear-gradient(90deg, #0E59F2 60%, #2563eb 100%);
+  background-color: var(--primary-color-2);
   color: #fff;
   border: none;
   border-radius: 12px;
@@ -72,15 +72,16 @@
   text-align: center;
 }
 
-.btn-primary:hover, .btn-primary:focus {
-  background: linear-gradient(90deg, #174bbd 60%, #2563eb 100%);
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(90deg, #174bbd 60%, #00c49a 100%);
   box-shadow: 0 8px 24px rgba(14, 89, 242, 0.18);
   transform: translateY(-2px) scale(1.04);
 }
 
 .success-msg {
   margin-top: 1rem;
-  color: #18BB9B;
+  color: #18bb9b;
   text-align: center;
   font-weight: 500;
   font-size: 1rem;

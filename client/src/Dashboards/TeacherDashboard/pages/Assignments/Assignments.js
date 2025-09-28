@@ -183,7 +183,7 @@ const Assignments = () => {
   };
 
   return (
-    <div className="assignments-page">
+    <div className="assignments-page container" style={{ marginTop: '18px'}}>
       <div className="page-header">
         <h2>Assignment Management</h2>
         <button 

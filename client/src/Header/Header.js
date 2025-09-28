@@ -90,14 +90,14 @@ export default function Header() {
         <div className="container">
           <div className="contactinfo">
             <div className="num">
-              <span>📞</span> +92(336)3473602
+              <span>📞</span> +923123456789
             </div>
             <div className="gmail">
-              <span>✉️</span> support@ilmimarkez.com
+              <span>✉️</span> support@SmartDesk.com
             </div>
           </div>
           <div className="location">
-            <span>📍</span> Suther Coloney Mithi Tharpakar
+            <span>📍</span> Lahore Punjab, Pakistan
           </div>
         </div>
       </div>
@@ -106,7 +106,11 @@ export default function Header() {
       <div className="mainheader">
         <div className="container">
           <div className="firstpart">
-            <img src="/ilmi-logo.png" alt="Logo" />
+            <img
+              style={{ cursor: "pointer" }}
+              src="/SmartDesk-logo.png"
+              alt="Logo"
+            />
           </div>
 
           <div className="secondpart">
@@ -251,7 +255,7 @@ export default function Header() {
               </div>
               <div className="mainContent">
                 <div className="mainContentFirstPart">
-                  <div className="threeLinesmainheading"> Ilmi Markarz </div>
+                  <div className="threeLinesmainheading"> SmartDesk </div>
                   <div className="threeLinesmainheadingbelowtext">
                     {" "}
                     Smart Solutions for Smarter Schools{" "}
@@ -259,9 +263,10 @@ export default function Header() {
                 </div>
                 <div className="contactPara">
                   Automate Institute Daily Operations, Generate Insightful
-                  Reports,Make Better & Faster Decisions. Ilmi Markerz Is An
-                  Online School Management System Software That Simplifies The
-                  Institute's Academic & Administrative Process Effortlessly.
+                  Reports,Make Better & Faster Decisions. SmartDesk SmartDesk Is
+                  An Online School Management System Software That Simplifies
+                  The Institute's Academic & Administrative Process
+                  Effortlessly.
                 </div>
                 <div className="getInTouch">
                   <div className="getInTouchMainHeading">Get in Touch </div>
@@ -272,7 +277,7 @@ export default function Header() {
                     </div>
                     <div className="contactInformation">
                       <div className="contactHeading">Call Now</div>
-                      <div className="contactData">+92(336)3473602</div>
+                      <div className="contactData">+923123456789</div>
                     </div>
                   </div>
 
@@ -282,7 +287,7 @@ export default function Header() {
                     </div>
                     <div className="contactInformation">
                       <div className="contactHeading">Quick Email</div>
-                      <div className="contactData">support@ilmimarkerz.com</div>
+                      <div className="contactData">support@SmartDesk.com</div>
                     </div>
                   </div>
                   <div className="contactInfo">
@@ -291,9 +296,7 @@ export default function Header() {
                     </div>
                     <div className="contactInformation">
                       <div className="contactHeading">Office Address</div>
-                      <div className="contactData">
-                        Suther Colony Mithi,Tharparkar
-                      </div>
+                      <div className="contactData">Lahore Punjab, Pakistan</div>
                     </div>
                   </div>
                 </div>
@@ -330,20 +333,21 @@ export default function Header() {
                   }}
                 />
               </div>
-                              <div className="searchResultsContainer">
-                  {searchResults.length === 0 && searchQuery && (
-                    <p>No results found.</p>
-                  )}
-                  {searchResults.map((item, index) => (
-                    <div
-                      key={index}
-                      className="searchResultItem"
-                      onClick={() => setShowSearchBar(false)}
-                    >
-                      {item}
-                    </div>
-                  ))}
-                </div>
+              <div className="searchResultsContainer">
+                <p style={{paddingLeft: '9px'}}>Search you are looking for:</p>
+                {searchResults.length === 0 && searchQuery && (
+                  <p>No results found.</p>
+                )}
+                {searchResults.map((item, index) => (
+                  <div
+                    key={index}
+                    className="searchResultItem"
+                    onClick={() => setShowSearchBar(false)}
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 

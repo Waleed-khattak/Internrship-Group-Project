@@ -83,7 +83,7 @@ const SidebarStudent = () => {
         <div className="sidebar-header">
           <div className="logo-container">
             <Link to="/student/dashboard">
-              <img src="/ilmi-logo.png" alt="Ilmi Markaz" className="logo" />
+              <img src="/SmartDesk-logo.png" alt="SmartDesk" className="logo" />
             </Link>
           </div>
           {isMobile && isExpanded && (

@@ -6,7 +6,7 @@
   align-items: center;
 }
 .donthaveAccount span {
-    color: #0E59F2;
+    color: --primary-color-3;
     cursor: pointer;
     transition: opacity 0.2s ease;
 }

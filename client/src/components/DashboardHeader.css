@@ -181,7 +181,7 @@
   background: none;
   border: none;
   font-size: 1.3rem;
-  color: #0E59F2;
+  color: --primary-color-3;
   cursor: pointer;
   outline: none;
   display: flex;
@@ -215,7 +215,7 @@
 }
 
 .contact-link {
-  color: #0E59F2;
+  color: --primary-color-3;
   text-decoration: none;
   font-weight: 500;
   margin-left: 6px;

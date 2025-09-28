@@ -5,7 +5,7 @@ const Dashboard = () => {
   //  student data
   const [user] = useState({
     name: 'Student User', 
-    email: 'student@ilmimarkaz.com',
+    email: 'student@SmartDesk.com',
     isEmailVerified: true
   });
 

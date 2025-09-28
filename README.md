@@ -1,6 +1,6 @@
-# Internship Group Project – IlmiMarkaz
+# Internship Group Project – SmartDesk
 
-This is the **Internship Group Project** Clone *IlmiMarkaz*.  
+This is the **Internship Group Project** Clone *SmartDesk*.  
 
 The project has two main parts:  
 - **Server** → Backend (Node.js + Express + MongoDB)  

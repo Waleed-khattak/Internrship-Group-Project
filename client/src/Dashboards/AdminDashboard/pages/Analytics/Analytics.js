@@ -19,7 +19,7 @@ const Analytics = () => {
               label: 'Students',
               data: [1200, 1250, 1300, 1250, 1300, 1350],
               backgroundColor: 'rgba(14, 89, 242, 0.2)',
-              borderColor: '#0E59F2',
+              borderColor: '--primary-color-3',
               borderWidth: 2,
               tension: 0.3
             },

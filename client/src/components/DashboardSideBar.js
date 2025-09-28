@@ -48,7 +48,7 @@ const Sidebar = ({ isOpen, role }) => {
     <div className={`sidebar ${isOpen ? 'active' : ''}`}>
       <div className="sidebar-header">
         <Link to={`/${role}`}>
-          <img src="/ilmi-logo.png" alt="Ilmi Markaz Logo" className="sidebar-logo" />
+          <img src="/SmartDesk-logo.png" alt="SmartDesk Logo" className="sidebar-logo" />
         </Link>
       </div>
       <ul className="sidebar-menu">

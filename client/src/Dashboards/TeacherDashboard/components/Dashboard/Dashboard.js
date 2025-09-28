@@ -13,7 +13,7 @@ const Dashboard = () => {
     if (!authData)
       return {
         name: "Teacher User",
-        email: "teacher@ilmimarkaz.com",
+        email: "teacher@SmartDesk.com",
         isEmailVerified: false,
         _id: null,
       };
@@ -46,7 +46,7 @@ const Dashboard = () => {
   ]);
 
   const quickActions = [
-    { title: "Mark Attendance", icon: "fas fa-check-square", description: "Take today's attendance", color: "#2563eb", bgColor: "rgba(37, 99, 235, 0.1)", action: () => navigate("/teacher/attendance") },
+    { title: "Mark Attendance", icon: "fas fa-check-square", description: "Take today's attendance", color: "#00c49a", bgColor: "rgba(37, 99, 235, 0.1)", action: () => navigate("/teacher/attendance") },
     { title: "Grade Papers", icon: "fas fa-award", description: "12 pending submissions", color: "#059669", bgColor: "rgba(5, 150, 105, 0.1)", action: () => navigate("/teacher/exams") },
     { title: "Create Assignment", icon: "fas fa-file-alt", description: "Add new task for students", color: "#d97706", bgColor: "rgba(217, 119, 6, 0.1)", action: () => navigate("/teacher/assignments") },
     { title: "Send Announcement", icon: "fas fa-bullhorn", description: "Notify students & parents", color: "#dc2626", bgColor: "rgba(220, 38, 38, 0.1)", action: () => navigate("/teacher/announcements") },

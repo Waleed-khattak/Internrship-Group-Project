@@ -60,7 +60,7 @@ export default function TeacherTimetable() {
   }, [teacherName]);
 
   return (
-    <div className="teacher-timetable">
+    <div className="teacher-timetable container" style={{ marginTop: '18px'}}>
       {/* Page Header */}
       <div className="teacher-page-header">
         <h2>Teacher Timetable</h2>

@@ -2,7 +2,7 @@
 
 :root {
   /* Colors */
-  --primary-blue: #0E59F2;
+  --primary-blue: --primary-color-3;
   --accent-yellow: #F8E559;
   --secondary-blue: #406AFF;
   --dark-blue-text: #051634;
@@ -15,7 +15,7 @@
   --success: #34A853;
   --warning: #FBBC04;
   --error: #EA4335;
-  --info: #0E59F2;
+  --info: --primary-color-3;
   
   /* Background variants */
   --success-bg: #E6F4EA;
@@ -24,7 +24,7 @@
   --info-bg: #E8F0FE;
   
   /* Typography */
-  --font-family: 'Space Grotesk', sans-serif;
+  --font-family: 'Roboto Condensed', sans-serif;
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;

@@ -62,7 +62,7 @@ const Announcements = () => {
   }, []);
 
   return (
-    <div className="announcements-page">
+    <div className="announcements-page container" style={{ marginTop: '18px'}}>
       <div className="page-header">
         <h2>Teacher Announcements</h2>
         <button 

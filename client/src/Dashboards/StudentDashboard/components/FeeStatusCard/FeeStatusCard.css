@@ -61,7 +61,7 @@
 }
 
 .pay-now-btn {
-  background-color: #0E59F2;
+  background-color: --primary-color-3;
   color: white;
   border: none;
   padding: 10px 15px;

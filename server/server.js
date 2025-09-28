@@ -15,7 +15,7 @@ app.use(cors());
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    console.log("✅ MongoDB connected to IlmiMarkaz");
+    console.log("✅ MongoDB connected to SmartDesk");
   })
   .catch(err => {
     console.error("❌ DB Error:", err);

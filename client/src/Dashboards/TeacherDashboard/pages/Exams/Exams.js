@@ -79,7 +79,7 @@ const Exams = () => {
   const currentMarks = selectedExam ? (marksRecords[selectedExam] || {}) : {};
 
   return (
-    <div className="exams-container">
+    <div className="exams-container container" style={{ marginTop: '18px'}}>
       {/* Header */}
       <div className="header-card">
         <h2 className="page-title">📊 Marks Entry System</h2>

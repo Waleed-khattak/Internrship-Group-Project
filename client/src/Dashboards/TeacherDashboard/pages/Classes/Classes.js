@@ -21,7 +21,7 @@ export default function Classes() {
     : [];
 
   return (
-    <div className="teacher-classes">
+    <div className="teacher-classes container" style={{ marginTop: '18px'}}>
       {/* Page Header */}
       <div className="teacher-page-header">
         <h2>My Classes</h2>

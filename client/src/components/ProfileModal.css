@@ -100,7 +100,7 @@
 }
 
 .btn-primary {
-    background-color: var(--primary-color-1);
+    background-color: var(--primary-color-2);
     color: white;
     border: none;
     padding: 10px 15px;
@@ -131,7 +131,7 @@
 /* Unique style for Edit Profile button in modal */
 .modal-btn-primary {
     padding: 10px 15px;
-    background: #0E59F2;
+    background: var(--primary-color-2);
     color: #fff;
     border: none;
     border-radius: 5px;

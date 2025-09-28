@@ -100,11 +100,11 @@ export default function SignUp() {
 
       <div className="loginSide">
         <div className="imageDiv">
-          <img src="/ilmi-logo.png" alt="Logo" />
+          <img src="/SmartDesk-logo.png" alt="Logo" style={{objectFit: 'cover'}}/>
         </div>
 
         <div className="welcomePart">
-          <p className="welcomeHeading">Welcome to Ilmi Markaz!👋</p>
+          <p className="welcomeHeading">Welcome to SmartDesk!👋</p>
           <p className="welcomeBelowLine">
             Please register to your account and start the adventure
           </p>
@@ -203,7 +203,7 @@ export default function SignUp() {
           padding: 8px 20px;
           font-size: 16px;
           font-weight: bold;
-          background: #2563eb;
+          background: #00c49a;
           color: #fff;
           border: none;
           border-radius: 4px;

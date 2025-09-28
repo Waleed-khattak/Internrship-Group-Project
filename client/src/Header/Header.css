@@ -9,8 +9,12 @@
 
 .bluebar .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
+  align-items: center;            
+  width: 100%;                  
+  padding: 0 1.5rem;           
 }
+
 
 .contactinfo {
   display: flex;
@@ -107,7 +111,7 @@
 }
 
 .regBtn {
-  background-color: var(--bg-heading-color, #007bff);
+  background-color: var(--primary-color-2);
   color: var(--text-white, white);
   border: none;
   padding: 10px 20px;
@@ -119,7 +123,7 @@
 }
 
 .regBtn:hover {
-  background-color: var(--bg-heading-color-hover, #0056b3);
+  background-color: var(--color-6);
   transform: translateY(-1px);
 }
 
@@ -137,7 +141,7 @@
 .cancelBtn {
   color: white;
   margin-top: 2rem;
-  margin-left: 23rem;
+  margin-left: 20rem;
   padding: 1.5% 3%;
   border-radius: 2rem;
   background-color: var(--color-3);
@@ -284,7 +288,7 @@
 /* Search input field */
 .searchInput {
   flex: 1;
-  padding: 0.9rem 1.2rem;
+  padding: 1.6rem 1.2rem;
   border: 1px solid #ccc;
   border-radius: 2rem;
   font-size: 1rem;
@@ -422,7 +426,7 @@
 }
 
 .dropdown-item:hover {
-  background-color: var(--bg-heading-color, #007bff);
+  background-color: var(--bg-heading-color, #FF6B35);
   color: white;
 }
 
@@ -438,7 +442,7 @@
 }
 
 .dropdown-item:hover::before {
-  background-color: var(--bg-heading-color, #007bff);
+  background-color: var(--bg-heading-color, #FF6B35);
 }
 
 .has-submenu {
@@ -475,7 +479,7 @@
 }
 
 .submenu-item:hover {
-  background-color: var(--bg-heading-color, #007bff);
+  background-color: var(--bg-heading-color, #FF6B35);
   color: white;
 }
 
@@ -530,12 +534,13 @@
 
 /* Large phones & small tablets: <= 768px */
 @media (max-width: 768px) {
+
   .secondpart { display: none; }
   .threelines { display: flex; cursor: pointer; }
   .fourthPart { display: none; }
   .firstpart { width: 40%; }
   .thirdpart { width: 50%; justify-content: flex-end; }
-  .mainheader { height: auto; flex-wrap: wrap; padding: 0.5rem 0; }
+  .mainheader { height: auto; flex-wrap: wrap; padding: 0.4rem 0; }
   .fullScreen { padding: 30px 15px; }
   .searchResultsContainer { max-width: 95%; }
   .dropdown-menu { left: -20px; }
@@ -550,7 +555,11 @@
     text-align: center;
     padding: 2.2rem 0; 
   }
-  
+    .mainheader {
+    height: 70px;        
+    padding: 0 1rem;     
+  }
+
   .bluebar .container {
     flex-direction: column;
     align-items: center;
@@ -583,7 +592,7 @@
   .getInTouchMainHeading { font-size: 18px; }
   .contactInfo { flex-direction: column; gap: 8px; }
 }
-
+ 
 /* Extra small phones: <= 360px */
 @media (max-width: 360px) {
   .firstpart img { max-height: 30px; }

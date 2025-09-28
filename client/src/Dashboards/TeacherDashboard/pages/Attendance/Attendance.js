@@ -66,7 +66,7 @@ const TeacherAttendance = () => {
   };
 
   return (
-    <div className="attendance-page">
+    <div className="attendance-page container" style={{ marginTop: '18px'}}>
       <h2>Teacher Attendance</h2>
       <form onSubmit={handleSubmit} className="attendance-form">
         <div className="form-row">

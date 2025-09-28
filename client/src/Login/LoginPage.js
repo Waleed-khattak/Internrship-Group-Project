@@ -112,11 +112,11 @@ export default function LoginPage() {
 
       <div className="loginSide">
         <div className="imageDiv">
-          <img src="ilmi-logo.png" alt="Logo" />
+          <img src="SmartDesk-logo.png" alt="Logo" style={{objectFit: 'cover'}}/>
         </div>
 
         <div className="welcomePart">
-          <p className="welcomeHeading">Welcome to Ilmi Markaz!👋</p>
+          <p className="welcomeHeading">Welcome to SmartDesk!👋</p>
           <p className="welcomeBelowLine">
             Please sign-in to your account and start the adventure
           </p>
