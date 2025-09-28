@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import SidebarStudent from "./components/SidebarStudent/SidebarStudent";
-import Header from "../../Components/DashboardHeader";
+import Header from "../../components/DashboardHeader";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Timetable from "./pages/Timetable/Timetable";
 import Attendance from "./pages/Attendance/Attendance";
@@ -10,7 +10,7 @@ import Results from "./pages/Results/Results";
 import Fees from "./pages/Fees/Fees";
 import Announcements from "./pages/Announcements/Announcements";
 import Profile from "./pages/Profile/Profile";
-import EditProfile from "../../Components/EditProfile";
+import EditProfile from "../../components/EditProfile";
 import "./styles/App.css"; 
 
 function StudentApp() {
