@@ -6,8 +6,8 @@ import AdminApp from "./Dashboards/AdminDashboard/AdminApp";
 import StudentApp from "./Dashboards/StudentDashboard/StudentApp";
 import TeacherApp from "./Dashboards/TeacherDashboard/TeacherApp";
 import Header from "./Header/Header";
-import ProtectedRoute from "./Components/ProtectedRoute";
-import Index from './Components/Index';
+import ProtectedRoute from "./components/ProtectedRoute";
+import Index from './components/Index';
 import ForgotPasswordFlow from "./pages/ForgotPasswordFlow";
 
 function App() {
