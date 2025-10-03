@@ -59,7 +59,7 @@ const Dashboard = () => {
       return;
     }
     try {
-      await axios.post(`http://localhost:5000/api/verify/teacher/${teacherUser._id}`, {}, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.post(`https://internrship-group-project-smartdesk.onrender.com/api/verify/teacher/${teacherUser._id}`, {}, { headers: { Authorization: `Bearer ${token}` } });
       const updatedUser = { ...teacherUser, isEmailVerified: true };
       localStorage.setItem("auth", JSON.stringify({ ...auth, user: updatedUser }));
       setTeacherUser(updatedUser);
