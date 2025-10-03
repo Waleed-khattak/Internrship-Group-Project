@@ -10,7 +10,7 @@ const ResetPassword = ({ email, role }) => {
   const handleReset = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/forgot-password/reset-with-pin", {
+      const res = await axios.post("https://internrship-group-project-smartdesk.onrender.com/api/forgot-password/reset-with-pin", {
         email,
         role,
         pin,

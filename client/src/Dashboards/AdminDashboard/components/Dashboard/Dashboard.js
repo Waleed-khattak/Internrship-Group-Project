@@ -43,7 +43,7 @@ const Dashboard = () => {
     try {
       // Fake verification API call (or real API if implemented)
       await axios.post(
-        `http://localhost:5000/api/verify/admin/${adminUser._id}`,
+        `https://internrship-group-project-smartdesk.onrender.com/api/verify/admin/${adminUser._id}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

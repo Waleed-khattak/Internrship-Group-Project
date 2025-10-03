@@ -10,7 +10,7 @@ const ForgotPassword = ({ onPinSent }) => {
   const handleRequestPin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/forgot-password/request-pin", { email, role });
+      const res = await axios.post("https://internrship-group-project-smartdesk.onrender.com/api/forgot-password/request-pin", { email, role });
       setMsg(res.data.msg);
       // Inform parent to show ResetPassword form
       onPinSent({ email, role });
