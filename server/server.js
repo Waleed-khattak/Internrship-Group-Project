@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
 require("dotenv").config();
 
 const verifyRoutes = require("./routes/verifyRoutes");
@@ -15,7 +16,7 @@ app.use(express.json());
 // ✅ CORS Configuration
 const allowedOrigins = [
   "https://internrship-group-project-why-smartdesk.onrender.com", // frontend
-  "http://localhost:3000" // for local dev
+  "http://localhost:3000" // local dev
 ];
 
 app.use(
@@ -43,7 +44,7 @@ mongoose
     console.error("❌ DB Error:", err);
   });
 
-// ✅ Routes
+// ✅ API Routes
 const signupRoutes = require("./routes/signupRoutes");
 const authRoutes = require("./routes/authRoutes");
 
@@ -55,9 +56,12 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/teacher", teacherRoutes);
 app.use("/api/student", studentRoutes);
 
-// ✅ Default Route
-app.get("/", (req, res) => {
-  res.send("🚀 SmartDesk API is running...");
+// ✅ Serve React Frontend (build folder)
+app.use(express.static(path.join(__dirname, "client/build")));
+
+// ✅ Catch-all handler to serve React index.html for unknown routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
 // ✅ Start Server
