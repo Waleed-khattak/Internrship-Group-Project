@@ -537,7 +537,7 @@
 
   .secondpart { display: none; }
   .threelines { display: flex; cursor: pointer; }
-  .fourthPart { display: none; }
+  .fourthPart { margin-left: 13px; }
   .firstpart { width: 40%; }
   .thirdpart { width: 50%; justify-content: flex-end; }
   .mainheader { height: auto; flex-wrap: wrap; padding: 0.4rem 0; }
@@ -545,6 +545,7 @@
   .searchResultsContainer { max-width: 95%; }
   .dropdown-menu { left: -20px; }
   .threelinesclickMainDiv { width: 80%; }
+  .regBtn { padding: 10px; font-size: 10px; }
 }
 @media (max-width: 740px) {
   .bluebar {
@@ -575,134 +576,35 @@
 }
 
 /* Mobile phones: <= 480px */
-/* Mobile view: up to 480px */
 @media (max-width: 480px) {
-  .bluebar .container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    font-size: 0.75rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .firstpart {
-    width: 50%;
-    display: flex;
-    justify-content: flex-start;
-  }
-
-  .firstpart img {
-    max-height: 35px;
-  }
-
-  .thirdpart {
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .threelinesclickMainDiv {
-    width: 90%;
-    padding: 1rem;
-  }
-
-  .cancelBtn {
-    margin-left: auto;
-    margin-top: 1rem;
-  }
-
-  .socialMediaContact {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: flex-start;
-  }
-
-  .searchInput {
-    font-size: 0.85rem;
-    padding: 0.6rem 1rem;
-  }
-
-  .searchResultsContainer {
-    max-width: 100%;
-  }
-
-  .dropdown-menu {
-    left: -10px;
-    min-width: 160px;
-  }
-
-  .submenu {
-    left: 100%;
-    min-width: 140px;
-  }
-
-  .mainContent {
-    margin: 1.5rem;
-  }
-
-  .threeLinesmainheading {
-    font-size: 24px;
-  }
-
-  .getInTouchMainHeading {
-    font-size: 18px;
-  }
-
-  .contactInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: flex-start;
-  }
+  .bluebar .container { flex-direction: column; gap: 5px; font-size: 0.7rem; align-items: center; }
+  .thirdpart { width: 50%; justify-content: flex-end; }
+  .threelinesclickMainDiv { width: 90%; padding: 1rem; }
+  .cancelBtn { margin-left: auto; margin-top: 1rem; }
+  .socialMediaContact { flex-wrap: wrap; gap: 10px; }
+  .searchInput { font-size: 0.85rem; padding: 0.6rem 1rem; }
+  .searchResultsContainer { max-width: 100%; }
+  .dropdown-menu { left: -10px; min-width: 160px; }
+  .submenu { left: 100%; min-width: 140px; }
+  .mainContent { margin: 1.5rem; }
+  .threeLinesmainheading { font-size: 24px; }
+  .getInTouchMainHeading { font-size: 18px; }
+  .contactInfo { flex-direction: column; gap: 8px; }
+    .regBtn { padding: 10px 8px; font-size: 7px; }
 }
-
-/* Extra small phones: up to 360px */
+ 
+/* Extra small phones: <= 360px */
 @media (max-width: 360px) {
-  .firstpart img {
-    max-height: 30px;
-  }
-
-  .hamburger-line {
-    width: 16px;
-    height: 2px;
-  }
-
-  .regBtn {
-    font-size: 11px;
-    padding: 6px 12px;
-  }
-
-  .searchInput {
-    font-size: 0.8rem;
-    padding: 0.5rem 0.8rem;
-  }
-
-  .dropdown-item {
-    font-size: 11px;
-    padding: 6px 8px;
-    gap: 4px;
-  }
-
-  .submenu-item {
-    font-size: 11px;
-    padding: 5px 8px;
-  }
-
-  .fullScreen {
-    padding: 20px 10px;
-  }
-
-  .socialMediaContact i {
-    padding: 0.6rem;
-    font-size: 18px;
-  }
-
-  .mainContentFirstPart {
-    line-height: 1.3rem;
-  }
+  .bluebar .container{align-items: flex-start;}
+  .hamburger-line { width: 16px; height: 2px; }
+  .regBtn { font-size: 11px; padding: 6px 12px; }
+  .searchInput { font-size: 0.8rem; padding: 0.5rem 0.8rem; }
+  .dropdown-item { font-size: 11px; padding: 6px 8px; gap: 4px; }
+  .submenu-item { font-size: 11px; padding: 5px 8px; }
+  .fullScreen { padding: 20px 10px; }
+  .socialMediaContact i { padding: 0.6rem; font-size: 18px; }
+  .mainContentFirstPart { line-height: 1.3rem; }
 }
-
 
 /* Optional: Make submenu full width on mobile for better usability */
 @media (max-width: 480px) {
