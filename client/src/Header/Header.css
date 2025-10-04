@@ -590,7 +590,7 @@
   .threeLinesmainheading { font-size: 24px; }
   .getInTouchMainHeading { font-size: 18px; }
   .contactInfo { flex-direction: column; gap: 8px; }
-    .regBtn { padding: 10px 8px; font-size: 7px; }
+    .regBtn { padding: 9px 7px; font-size: 6px; }
 }
  
 /* Extra small phones: <= 360px */
