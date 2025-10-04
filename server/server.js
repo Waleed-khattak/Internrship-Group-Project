@@ -16,7 +16,7 @@ const app = express();
 
 // ✅ CORS setup
 const corsOptions = {
-  origin: "https://internrship-group-project-why-smartdesk.onrender.com",
+  origin: ["https://internrship-group-project-why-smartdesk.onrender.com", "http://localhost:3000"],
 };
 app.use(cors(corsOptions));
 app.use(express.json());
@@ -39,9 +39,13 @@ app.use("/api/student", studentRoutes);
 // ✅ Serve React build folder
 app.use(express.static(path.join(__dirname, "client/build")));
 
-// ✅ SPA Fallback Route (Express 5 fix — use '/*' not '*')
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+// ✅ Fallback route (Express 5 safe)
+app.use((req, res, next) => {
+  if (req.method === "GET" && !req.path.startsWith("/api")) {
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  } else {
+    next();
+  }
 });
 
 // ✅ Start Server
