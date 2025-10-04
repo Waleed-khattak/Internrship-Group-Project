@@ -39,20 +39,14 @@ router.post("/request-pin", async (req, res) => {
     await user.save();
 
     // Send email with PIN
-try {
-  await transporter.sendMail({
-    from: process.env.EMAIL_USER,
-    to: email,
-    subject: "Password Reset PIN",
-    html: `<p>Hello ${user.name},</p>
-           <p>Your password reset PIN is: <b>${pin}</b></p>
-           <p>This PIN will expire in 5 minutes.</p>`
-  });
-  console.log(`✅ PIN sent successfully to ${email}`);
-} catch (error) {
-  console.error(`❌ Failed to send PIN to ${email}:`, error);
-}
-
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "Password Reset PIN",
+      html: `<p>Hello ${user.name},</p>
+             <p>Your password reset PIN is: <b>${pin}</b></p>
+             <p>This PIN will expire in 5 minutes.</p>`
+    });
 
     res.json({ msg: "PIN sent to your email" });
   } catch (err) {
